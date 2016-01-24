@@ -31,7 +31,7 @@ $(document).ready(function(){
 <div id="header-wrapper">
 	<div id="header">
 		<div id="logo">
-			<h1><a href="${pageContext.request.contextPath}/">school</a></h1>
+			<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/images/logo/logo.png" title="Cloud Schools" alt="Cloud School logo"></a>
 		</div>
 		<div id="menu">
 			<ul>

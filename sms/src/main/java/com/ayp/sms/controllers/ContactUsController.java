@@ -34,7 +34,7 @@ public class ContactUsController {
 	public ResponseObject createContactUsRequest(@RequestBody ContactUsDTO dto, HttpServletRequest request){
 		if(contactUsService.createContactUsRequest(dto))
 			return ResponseUtil.createResponseObject(SUCCESS, "Your request has been sent to Admin."
-					+ " Please wiat for your email reply", null);
+					+ " Please wait for your email reply", null);
 		return ResponseUtil.createResponseObject(FAILURE, "Please try again", null);
 	}
 

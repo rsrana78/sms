@@ -35,3 +35,8 @@
 #school-data-table h1{
 	
 }
+
+#school-data-table th {
+    background-color: #4CAF50;
+    color: white;
+}

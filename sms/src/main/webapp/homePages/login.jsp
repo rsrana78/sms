@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="/includes/header.jsp"%>
+<script src="${pageContext.request.contextPath}/js/login.js" type="text/javascript"></script>
 <link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet" type="text/css" media="screen" />
 <!-- Change button class -->
 <script>
@@ -30,11 +31,14 @@ $(document).ready(function(){
 	<form method="POST" id="login-form" name="login-form">
 	  <fieldset>
 	    <legend class="legend-text">Please login to get access to your school</legend>
+	    <div id="error-message">
+	    <p id="message"></p>
+	    </div>
 	    User Name<br>
-	    <input type="text" id="login-user-name" name="username" placeholder="Please enter username"><br><br>
+	    <input type="text" id="login-user-name" name="username" required><br><br>
 	    Password<br>
-	    <input type="password" id="login-password" name="password" placeholder="Please enter password"  autocomplete="off"><br><br>
-	    <input type="button" id='loginBtn' value="Login" onclick="loginUser()"/>
+	    <input type="password" id="login-password" name="password"  autocomplete="off" required><br><br>
+	    <input type="button" id='loginBtn' value="Login" onclick="validateLoginUser()"/>
 	  </fieldset>
 	</form>
 </div>

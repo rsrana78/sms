@@ -50,15 +50,14 @@ a:hover {
 /* Header */
 
 #header-wrapper {
-	overflow: hidden;
-	height: 60px;
+	overflow: auto;
+	height: 90px;
 	background: #000000;
 }
 
 #header {
-	overflow: hidden;
+	overflow: auto;
 	width: 1000px;
-	height: 200px;
 	margin: 0 auto;
 	padding: 0px 0px;
 }
@@ -139,9 +138,8 @@ a:hover {
 #menu ul {
 	float: right;
 	margin: 0;
-	padding: 15px 0px 0px 0px;
+	padding: 25px 0px 0px 0px;
 	list-style: none;
-	line-height: normal;
 }
 
 #menu li {
@@ -176,10 +174,10 @@ a:hover {
 
 #footer {
 	background-color:black;
-    	color:white;
-    	clear:both;
-    	text-align:center;
-    	padding:15px; 
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:15px; 
 }
 
 #footer p {

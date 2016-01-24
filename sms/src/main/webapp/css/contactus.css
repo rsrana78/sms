@@ -10,3 +10,8 @@
 	margin-top: 5px;
 	color: brown;
 }
+
+form {
+    width: 75%;
+    margin: 0 auto;
+}

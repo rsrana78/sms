@@ -10,11 +10,11 @@ function loginUser(){
         	if(response.status == 'SUCCESS'){
         		window.location.replace(context+"/myschool");
         	}else{
-        		alert(response.message);
+        		$('#message').text(response.message);
         	}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-        	alert(error);
+        	$('#message').text(error);
     } 
 	
     });
@@ -29,11 +29,17 @@ function contactServer(){
         headers: {'Content-Type': 'application/json'},
 	    data: JSON.stringify(contactData),
         success: function(response) {
-        	alert(response.message);
+        	$('#message').text(response.message);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-        	alert(error);
+        	$('#message').text(error);
     } 
 	
     });
+}
+
+//Validate email address
+function validateEmail(email) {
+    var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+    return re.test(email);
 }

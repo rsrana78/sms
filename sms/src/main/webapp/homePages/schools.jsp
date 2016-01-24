@@ -30,6 +30,7 @@ $(document).ready(function(){
 <table id="school-data-table">
 	<thead>
 		<tr class="dataTable-header">
+			<th>#</th>
 			<th>School Name</th>
 			<th>Address</th>
 			<th>Monogram</th>
@@ -40,14 +41,17 @@ $(document).ready(function(){
 	<tbody>
 		<c:choose>
 			<c:when test="${fn:length(schoolList) > 0}">
+				<c:set var="count" scope="page" value="${1}"/>
 				<c:forEach items="${schoolList}" var="school">
 					<tr>
+						<td>${count}</td>
 						<td><a href="#">${school.schoolName}</a></td>
 						<td>${school.address}</td>
 						<td><a href="#"><img src="${pageContext.request.contextPath}${school.monogramPath}" title="${school.schoolName}" alt="${school.schoolName}"></a></td>
 						<td><a href="#"><img src="${pageContext.request.contextPath}${school.ownerImagePath}" title="${school.ownerName}" alt="${school.ownerName}"></a></td>
 						<td><a href="#"><img src="${pageContext.request.contextPath}${school.principalImagePath}" title="${school.principalName}" alt="${school.principalName}"></a></td>
 					</tr>
+					<c:set var="count" scope="page" value="${count+1}"/>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
