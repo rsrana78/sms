@@ -1,0 +1,17 @@
+package com.ayp.sms.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ayp.sms.domain.TimeTable;
+
+/**
+ * 
+ * @author rana
+ *
+ */
+
+@Transactional
+public interface TimeTableRepository extends JpaRepository<TimeTable, Integer>{
+
+}

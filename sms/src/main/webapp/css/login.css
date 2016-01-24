@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+
+.legend-text{
+	font-family: courier;
+	font-size: 30px;
+	font-style: bold;
+	text-align: center;
+	margin-top: 5px;
+	color: brown;
+}
