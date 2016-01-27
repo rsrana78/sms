@@ -10,6 +10,9 @@ function validateContactUser(){
 	else if(phone == ""){
 		$('#message').text('Phone can not be empty');
 	}
+	else if(phone.length < 11){
+		$('#message').text('Please provide a valid phone number');
+	}
 	else if(email == ""){
 		$('#message').text('Email can not be empty');
 	}
@@ -18,6 +21,9 @@ function validateContactUser(){
 	}
 	else if(message == ""){
 		$('#message').text('Message can not be empty');
+	}
+	else if(message.length < 50 || message.trim.length < 50){
+		$('#message').text('Message should be atleast 50 characters');
 	}
 	else {
 		contactServer();

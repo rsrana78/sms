@@ -31,7 +31,7 @@ $(document).ready(function(){
 	<form method="POST" id="login-form" name="login-form">
 	  <fieldset>
 	    <legend class="legend-text">Please login to get access to your school</legend>
-	    <div id="error-message">
+	    <div class="error-message">
 	    <p id="message"></p>
 	    </div>
 	    User Name<br>

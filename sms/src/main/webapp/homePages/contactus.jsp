@@ -31,7 +31,7 @@ $(document).ready(function(){
 	<form>
 	  <fieldset>
 	    <legend class="legend-text">Please fill the form below and submit your request</legend>
-	    <div id="error-message">
+	    <div class="error-message">
 	    <p id="message"></p>
 	    </div>
 	    Name<br>

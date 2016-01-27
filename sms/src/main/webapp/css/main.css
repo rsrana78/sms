@@ -214,3 +214,14 @@ a:hover {
 	margin-top: 5px;
 	color: brown;
 }
+
+.error-message{
+	height:60px;
+    border: 3px;
+}
+
+.error-message p{
+	font-family: 'Arial Black;
+	color:#272727;
+	font-size:40px;
+}

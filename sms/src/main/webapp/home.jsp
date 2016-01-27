@@ -16,7 +16,7 @@ $(document).ready(function(){
 <!-- change button class -->
 <!-- Image -->
 <div id="home-page-image-div">
-<img src="${pageContext.request.contextPath}/images/homepage/city.jpg" alt="School Management" style="width:100%;height:550px;">
+<img src="${pageContext.request.contextPath}/images/homepage/mainBanner.jpg" alt="Cloud School Management System" title="Cloud School Management System" style="width:100%;height:550px;">
 </div>
 <!-- Image -->
 <%@ include file="/includes/footer.jsp"%>
