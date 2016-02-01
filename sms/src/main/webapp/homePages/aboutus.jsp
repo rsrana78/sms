@@ -11,6 +11,7 @@ $(document).ready(function(){
 	$('#about').addClass('current_page_item');
 	$('#contact').removeClass('current_page_item');
 	$('#login').removeClass('current_page_item');
+	$('#team').removeClass('current_page_item');
 });
 </script>
 <!-- Change button class -->

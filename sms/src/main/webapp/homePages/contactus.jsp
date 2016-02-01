@@ -13,6 +13,7 @@ $(document).ready(function(){
 	$('#about').removeClass('current_page_item');
 	$('#contact').addClass('current_page_item');
 	$('#login').removeClass('current_page_item');
+	$('#team').removeClass('current_page_item');
 });
 </script>
 <!-- Change button class -->
@@ -30,19 +31,16 @@ $(document).ready(function(){
 <div id="contact-form">
 	<form>
 	  <fieldset>
-	    <legend class="legend-text">Please fill the form below and submit your request</legend>
+	    <p class="legend-text">Please fill and submit this form</p>
+	    <input id="contact-name" type="text" placeholder="Complete Name" maxlength="100"><br><br>
+	    <input id="contact-phone" type="text" maxlength="11" placeholder="Phone number"><br><br>
+	    <input id="contact-email" type="text" placeholder="Email for reply" maxlength="100"><br><br>
+	    <textarea id="contact-message" name="message" cols="45" rows="15" placeholder="Enter Your Message Here..." maxlength="1000"></textarea><br><br>
 	    <div class="error-message">
 	    <p id="message"></p>
 	    </div>
-	    Name<br>
-	    <input id="contact-name" type="text" name="name" value="" required><br><br>
-	    Phone<br>
-	    <input id="contact-phone" type="text" name="phone" value="" required><br><br>
-	    Email<br>
-	    <input id="contact-email" type="text" name="email" value="" required><br><br>
-	    Message<br>
-	    <textarea id="contact-message" name="message" cols="50" rows="5" placeholder="Enter Your Message Here..." required></textarea><br><br>
-	    <input type="button" id='submit-contact' value="Submit" onclick="validateContactUser()"/>
+	    <input type="button" id='submit-contact' value="Submit" onclick="validateContactUser()" title="Send your request"/>
+	    <input type="reset" id='submit-reset' value="Reset" title="Reset This Form" style="margin-left: 340px" onclick="reset()"/>
 	  </fieldset>
 	</form>
 </div>

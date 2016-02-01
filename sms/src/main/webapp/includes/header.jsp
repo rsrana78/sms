@@ -23,6 +23,7 @@ $(document).ready(function(){
 		$("#log-button").text("Logout");
 		$("#log-button").attr("href", context+"/logout");
 		$("#log-button").attr("title", "Logout from system");
+		$('#menu ul').find('>li:nth-last-child(1)').before('<li><a href="${pageContext.request.contextPath}/myschool/" title="Go to your school home page">My School</a></li>');
 	}
 });
 </script>
@@ -35,11 +36,12 @@ $(document).ready(function(){
 		</div>
 		<div id="menu">
 			<ul>
-				<li id="home" class="current_page_item"><a href="${pageContext.request.contextPath}/" title="Go to home page">Home</a></li>
-				<li id="mission" class=""><a href="${pageContext.request.contextPath}/ourMission" title="View our mission statement">Our Mission</a></li>
-				<li id="schools" class=""><a href="${pageContext.request.contextPath}/ourSchools" title="Check schools working with us">Our Schools</a></li>
+				<li id="home" class=""><a href="${pageContext.request.contextPath}/" title="Go to home page">Home</a></li>
 				<li id="about" class=""><a href="${pageContext.request.contextPath}/aboutUs" title="About us">About</a></li>
-				<li id="contact" class=""><a href="${pageContext.request.contextPath}/contactUs" title="Contact us if you have any query">Contact Us</a></li>
+				<li id="mission" class=""><a href="${pageContext.request.contextPath}/ourMission" title="View our mission statement">Mission</a></li>
+				<li id="schools" class=""><a href="${pageContext.request.contextPath}/ourSchools" title="Check schools working with us">Schools</a></li>
+				<li id="team" class=""><a href="${pageContext.request.contextPath}/team" title="Our Team">Our Team</a></li>
+				<li id="contact" class=""><a href="${pageContext.request.contextPath}/contactUs" title="Contact us if you have any query">Contact</a></li>
 				<li id="login" class=""><a href="${pageContext.request.contextPath}/login" title="Login to your school" id="log-button">Login</a></li>
 			</ul>
 		</div>

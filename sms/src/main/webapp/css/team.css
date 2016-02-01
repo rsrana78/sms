@@ -1,0 +1,21 @@
+#team-data-table, #team-data-table table{
+	margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border: 2;
+}
+
+#team-data-table tr{
+	
+}
+
+#team-data-table td{
+	height: 30px;
+	text-align : center;
+	padding: 20px;
+}
+
+#team-data-table img{
+	height: 300px;
+	width: 300px;
+}

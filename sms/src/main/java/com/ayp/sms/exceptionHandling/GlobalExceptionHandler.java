@@ -18,6 +18,7 @@ import org.hibernate.exception.JDBCConnectionException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.transaction.TransactionException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -275,5 +276,16 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public String handleError404(HttpServletRequest request, Exception exception)   {
             return PAGE_404;
-    }	
+    }
+	
+	@ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+	public ResponseObject requestMethdExceptionHandler(Exception exception, HttpServletRequest request, HttpServletResponse response) throws IOException{
+		LOGGER.error("Eception",exception);
+		if(request.getHeader("X-Requested-With") == null){
+			request.getSession().setAttribute(ERROR_MESSAGE, NUMBER_FORMAT_EXCEPTION+" "+exception.getLocalizedMessage());
+			response.sendRedirect(SMS_ERROR_PAGE_REDIRECT_PATH);
+			return null;
+		}
+		return ResponseUtil.createResponseObject(FAILURE, NUMBER_FORMAT_EXCEPTION+" "+exception.getLocalizedMessage(),null);
+	}
 }

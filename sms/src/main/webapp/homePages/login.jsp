@@ -13,6 +13,7 @@ $(document).ready(function(){
 	$('#about').removeClass('current_page_item');
 	$('#contact').removeClass('current_page_item');
 	$('#login').addClass('current_page_item');
+	$('#team').removeClass('current_page_item');
 });
 </script>
 <!-- Change button class -->
@@ -30,15 +31,12 @@ $(document).ready(function(){
 <div id="login-form">
 	<form method="POST" id="login-form" name="login-form">
 	  <fieldset>
-	    <legend class="legend-text">Please login to get access to your school</legend>
-	    <div class="error-message">
-	    <p id="message"></p>
-	    </div>
-	    User Name<br>
-	    <input type="text" id="login-user-name" name="username" required><br><br>
-	    Password<br>
-	    <input type="password" id="login-password" name="password"  autocomplete="off" required><br><br>
-	    <input type="button" id='loginBtn' value="Login" onclick="validateLoginUser()"/>
+	    <p class="legend-text">Login to your school</p>
+	    <input type="text" id="login-user-name" name="username" placeholder="User name or email" maxlength="50"><br><br>
+	    <input type="password" id="login-password" name="password" placeholder="Password" autocomplete="off" maxlength="50"><br><br>
+	    <input type="checkbox" id="remember" name="remember">Keep me logged in<br><br>
+	    <p id="message" class="error-message"></p>
+	    <input type="button" id='loginBtn' value="Login" title="Login to the system" onclick="validateLoginUser()"/>
 	  </fieldset>
 	</form>
 </div>

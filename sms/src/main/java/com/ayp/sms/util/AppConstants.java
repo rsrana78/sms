@@ -28,6 +28,7 @@ public final class AppConstants {
     
     //error pages
     public final static String PAGE_404 = "/errorPages/404";
+    public final static String ERROR_PAGE = "/errorPages/error";
     public final static String SMS_ERROR_PAGE_REDIRECT_PATH = "/SMS/errorPages/error.jsp";
     
     //exception messages

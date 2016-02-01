@@ -2,19 +2,49 @@
 function validateLoginUser(){
 	var user = $('#login-user-name').val();
 	var password = $('#login-password').val();
+	var remember = false;
 	if(user == ""){
-		$('#message').text('User name can not be empty');
+		$('#login-user-name').css('border-color', 'red');
+		$('#message').text('Please enter username');
 	}
 	else if(user.length < 6){
-		$('#message').text('User name should be atleast 6 characters');
+		$('#login-user-name').css('border-color', 'red');
+		$('#message').text('user name must be atleast 6 characters');
 	}
 	else if(password == ""){
-		$('#message').text('Password can not be empty');
+		$('#login-password').css('border-color', 'red');
+		$('#message').text('Please enter password');
 	}
 	else if(password.length < 6){
-		$('#message').text('Password should be atleast 6 characters');
+		$('#login-password').css('border-color', 'red');
+		$('#message').text('password must be atleast 6 characters');
 	}
 	else{
-		loginUser();
+		if($('#remember').is(":checked")){
+			remember = true;
+		}
+		loginUser(user, password, remember);
 	}
+}
+
+/*Login user function*/
+function loginUser(user, pass, remember){
+	var loginData = {'userName':user,'password':pass,'rememberMe':remember};
+	jQuery.ajax({
+        url: context+"/login",
+        type: 'POST',
+        headers: {'Content-Type': 'application/json'},
+	    data: JSON.stringify(loginData),
+        success: function(response) {
+        	if(response.status == 'SUCCESS'){
+        		window.location.replace(context+"/myschool");
+        	}else{
+        		$('#message').text(response.message);
+        	}
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+        	$('#message').text(error);
+    } 
+	
+    });
 }

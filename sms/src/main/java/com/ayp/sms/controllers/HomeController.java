@@ -15,23 +15,16 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.ayp.sms.service.SchoolService;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	
-	@Autowired
-	private SchoolService schoolService;
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
     
@@ -51,8 +44,7 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/ourSchools", method = RequestMethod.GET)
-    public String ourSchools(Locale locale, ModelMap model){
-    	model.addAttribute("schoolList", schoolService.getAllRegisteredSchool());
+    public String ourSchools(){
     	return "homePages/schools";
     }
     
@@ -74,6 +66,11 @@ public class HomeController {
 			return null;
 		}
     	return "homePages/login";
+    }
+    
+    @RequestMapping(value = "/team", method = RequestMethod.GET)
+    public String team(){
+    	return "homePages/ourteam";
     }
 
 }
