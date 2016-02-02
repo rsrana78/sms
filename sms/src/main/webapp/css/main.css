@@ -120,9 +120,30 @@ a:hover {
 
 /*Mission statement*/
 .mission-statement{
-	text-align: center;
-	color: black;
+	font-family: monospace;
 	font-size: 20px;
+	text-indent: 50px;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 50px;
+    margin-right: 50px;
+	color: brown;
+	line-height: 1px;
+}
+
+/*About Statement*/
+.about-statement{
+	font-family: monospace;
+	font-size: 20px;
+	text-indent: 50px;
+	text-align: justify;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 50px;
+    margin-right: 50px;
+	color: brown;
+	line-height: 1px;
 }
 
 /* Menu */
@@ -148,7 +169,7 @@ a:hover {
 
 #menu a {
 	display: block;
-	padding: 10px 20px 10px 20px;
+	padding: 9px 13px 9px 13px;
 	text-decoration: none;
 	text-align: center;
 	font-size: 18px;
@@ -157,7 +178,7 @@ a:hover {
 	border: none;
 }
 
-#menu a:hover, #menu .current_page_item a {
+#menu a:hover {
 	text-decoration: none;
 	color: #FFFFFF;
 }
@@ -206,10 +227,12 @@ a:hover {
 
 .page-heading p{
 	font-family: monospace;
-	font-size: 27px;
+	font-size: 20px;
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 30px;
+	margin-left: 10%;
+	margin-right: 10%;
 	color: brown;
 }
 

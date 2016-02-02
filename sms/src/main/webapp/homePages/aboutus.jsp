@@ -22,14 +22,28 @@ $(document).ready(function(){
 <!-- This div is for space between header and footer -->
 </div>
 
-<div class="page-heading">
+<div class="about-statement">
 	<p>	
-		About us<br>
-		We are four toonts<br>
-		One day we decided to desigh and develop this system and on next day we started working on it<br>
-		So finally this system is complete now.<br>
-		Fadi yara Bhabi say ye bhi likhwa day.<br>
-		Fit see english ho jo samaj hi na aye :) :D
+		Cloud computing, also known as 'on-demand computing', is a kind of Internet-based computing, where shared resources, 
+		data and information are provided to computers and other devices on-demand. It is a model for enabling ubiquitous, 
+		on-demand access to a shared pool of configurable computing resources.<br>
+		Cloud computing and storage solutions provide users and enterprises with various capabilities to store and process their 
+		data in third-party data centers. It relies on sharing of resources to achieve coherence and economies of scale, similar 
+		to a utility (like the electricity grid) over a network. At the foundation of cloud computing is the broader concept of converged 
+		infrastructure and shared services.<br>Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a 
+		shared pool of configurable computing resources (e.g., networks, servers, storage, applications and services) that can be rapidly
+		provisioned and released with minimal management effort.Proponents claim that cloud computing allows companies to 
+		avoid upfront infrastructure costs, and focus on projects that differentiate their businesses instead of on infrastructure.
+		Proponents also claim that cloud computing allows enterprises to get their applications up and running faster, with improved 
+		manageability and less maintenance, and enables IT to more rapidly adjust resources to meet fluctuating and unpredictable business 
+		demand.Cloud providers typically use a "pay as you go" model. This can lead to unexpectedly high charges if administrators 
+		do not adapt to the cloud pricing model.<br>The present availability of high-capacity networks, low-cost computers and storage 
+		devices as well as the widespread adoption of hardware virtualization, service-oriented architecture, and autonomic and utility 
+		computing have led to a growth in cloud computing.[8][9][10] Companies can scale up as computing needs increase and then scale 
+		down again as demands decrease.Cloud computing has now become a highly demanded service or utility due to the advantages 
+		of high computing power, cheap cost of services, high performance, scalability, accessibility as well as availability.
+		Cloud vendors are experiencing growth rates of 50% per annum.<br> But due to being in a stage of infancy, it still has 
+		some pitfalls which need to be given proper attention to make cloud computing services more reliable and user friendly.
 	</p>
 </div>
 

@@ -22,11 +22,11 @@ $(document).ready(function(){
 <!-- This div is for space between header and footer -->
 </div>
 
-<div class="page-heading">
+<div class="mission-statement">
 	<p>	
 		Our Mission Statement<br>
-		Fadi yara Bhabi say mission statement to likhwa day.<br>
-		Fit see english ho jo samaj hi na aye :) :D
+		This will be added later<br>
+		This will also be added later :) :D
 	</p>
 </div>
 <!-- Mission Statement -->

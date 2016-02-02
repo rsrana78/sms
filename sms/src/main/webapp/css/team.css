@@ -1,8 +1,24 @@
-#team-data-table, #team-data-table table{
+#team-data-table{
 	margin-left: auto;
     margin-right: auto;
     width: 90%;
-    border: 2;
+    border-width: 3px;
+	border-spacing: 1px;
+	border-style: dashed;
+	border-color: black;
+	border-collapse: separate;
+	background-color: white;
+}
+
+#team-data-table-inner{
+	margin-left: auto;
+    margin-right: auto;
+    border-width: 3px;
+	border-spacing: 1px;
+	border-style: dashed;
+	border-color: black;
+	border-collapse: separate;
+	background-color: white;
 }
 
 #team-data-table tr{
@@ -12,10 +28,61 @@
 #team-data-table td{
 	height: 30px;
 	text-align : center;
-	padding: 20px;
+	border-width: 1px;
+	padding: 1px;
+	border-style: inset;
+	border-color: gray;
+	background-color: white;
 }
 
-#team-data-table img{
-	height: 300px;
-	width: 300px;
+#team-data-table-inner tr{
+	
+}
+
+#team-data-table-inner td{
+	height: 30px;
+	text-align : center;
+	border-width: 1px;
+	padding: 1px;
+	border-style: inset;
+	border-color: gray;
+	background-color: white;
+}
+
+#team-data-table-inner img{
+	height: 400px;
+	width: 350px;
+}
+
+#team-data-table-inner h1{
+	font-family: monospace;
+	font-size: 10px;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+    margin-right: 0px;
+	color: brown;
+}
+
+#team-data-table-inner h2{
+	font-family: monospace;
+	font-size: 10px;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+    margin-right: 0px;
+	color: brown;
+}
+
+#team-data-table-inner p{
+	font-family: monospace;
+	font-size: 15px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+    margin-right: 5px;
+	color: brown;
 }

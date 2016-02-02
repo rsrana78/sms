@@ -94,7 +94,14 @@ function getContext(){
 	                <li><a href="#">Test Results</a></li>
                 </ul>
 			</li>
-			<li id="login">
+			<li id="reports">
+				<a href="#">Reports &#9662;</a>
+				<ul class="dropdown">
+	                <li><a href="#">Teachers Report</a></li>
+	                <li><a href="#">Students Report</a></li>
+	            </ul>
+			</li>
+			<li id="account">
 				<a href="#">Account &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="${pageContext.request.contextPath}/logout/">Logout</a></li>
