@@ -22,6 +22,10 @@ $(document).ready(function(){
 <!-- This div is for space between header and footer -->
 </div>
 
+<div class="page-heading">
+	<p>"About Cloud Schools"</p>
+</div>
+
 <div class="about-statement">
 	<p>	
 		Cloud computing, also known as 'on-demand computing', is a kind of Internet-based computing, where shared resources, 

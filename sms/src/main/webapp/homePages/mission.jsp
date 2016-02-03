@@ -22,6 +22,10 @@ $(document).ready(function(){
 <!-- This div is for space between header and footer -->
 </div>
 
+<div class="page-heading">
+	<p>"Cloud Schools Mission Statement"</p>
+</div>
+
 <div class="mission-statement">
 	<p>	
 		Our Mission Statement<br>

@@ -31,7 +31,7 @@ function getContext(){
 		<ul>
 			<li id="home"><a href="${pageContext.request.contextPath}/myschool/">Home</a></li>
 			<li id="employee">
-				<a href="#">Employees &#9662;</a>
+				<a>Employees &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="#">New Employee</a></li>
 	                <li><a href="#">List All Employees</a></li>
@@ -39,7 +39,7 @@ function getContext(){
             	</ul>
 			</li>
 			<li id="student">
-				<a href="#">Students &#9662;</a>
+				<a>Students &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="#">New Admission</a></li>
 	                <li><a href="#">List Students</a></li>
@@ -50,7 +50,7 @@ function getContext(){
                 </ul>
 			</li>
 			<li id="classes">
-				<a href="#">Classes &#9662;</a>
+				<a>Classes &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="#">List All Classes</a></li>
 	                <li><a href="#">List All Sections</a></li>
@@ -59,54 +59,49 @@ function getContext(){
                 </ul>
 			</li>
 			<li id="timetable">
-				<a href="#">Time Table &#9662;</a>
+				<a>Time Table &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="#">View Time Table</a></li>
 	                <li><a href="#">Change Time Table</a></li>
                 </ul>
 			</li>
 			<li id="exam">
-				<a href="#">Exams &#9662;</a>
+				<a>Exams &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="#">List Exams</a></li>
-	                <li><a href="#">Start Exam</a></li>
-                </ul>
-			</li>
-			<li id="tests">
-				<a href="#">Tests &#9662;</a>
-				<ul class="dropdown">
-	                <li><a href="#">Take New Test</a></li>
-	                <li><a href="#">List All Tests</a></li>
-                </ul>
-			</li>
-			<li id="datesheet">
-				<a href="#">Date Sheet &#9662;</a>
-				<ul class="dropdown">
-	                <li><a href="#">Create New Date Sheet</a></li>
+	                <li><a href="#">Date Sheet for New Exam</a></li>
 	                <li><a href="#">view Date Sheet</a></li>
 	                <li><a href="#">Change Date Sheet</a></li>
                 </ul>
 			</li>
+			<li id="tests">
+				<a id="tests">Tests &#9662;</a>
+				<ul class="dropdown">
+	                <li><a href="#">Take New Test</a></li>
+	                <li><a href="#">List All Tests</a></li>
+	                <li><a href="#">Change Test Date</a></li>
+                </ul>
+			</li>
 			<li id="results">
-				<a href="#">Results &#9662;</a>
+				<a>Results &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="#">Exam Results</a></li>
 	                <li><a href="#">Test Results</a></li>
                 </ul>
 			</li>
 			<li id="reports">
-				<a href="#">Reports &#9662;</a>
+				<a>Reports &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="#">Teachers Report</a></li>
 	                <li><a href="#">Students Report</a></li>
 	            </ul>
 			</li>
 			<li id="account">
-				<a href="#">Account &#9662;</a>
+				<a>Account &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="${pageContext.request.contextPath}/logout/">Logout</a></li>
 	                <li><a href="#">Change Password</a></li>
-	                <li><a href="#">Account Setting</a></li>
+	                <li><a href="#">View Profile</a></li>
 	            </ul>
 			</li>
 		</ul>
