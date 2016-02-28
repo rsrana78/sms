@@ -28,9 +28,6 @@ public class SchoolController {
 	
 	@RequestMapping(value = "/myschool", method = RequestMethod.GET)
 	public String getYourHomePage(Locale locale, Model model){
-		//TODO Add logo and school name dynamically
-		model.addAttribute("logoPath","/images/monograms/a.png");
-		model.addAttribute("schoolName","Its My Test School Name");
 		return "school/schoolindex";
 	}
 	

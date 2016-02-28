@@ -8,9 +8,11 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Cloud Schools</title>
 <script src="${pageContext.request.contextPath}/js/jquery-2.2.0.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/main.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/school.js" type="text/javascript"></script>
 <link href="${pageContext.request.contextPath}/css/school.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
 <script type="text/javascript">
 var context = getContext();
 function getContext(){
@@ -20,12 +22,12 @@ function getContext(){
 </head>
 <body>
 <div id="main-header">
-<p>${sessionScope['scopedTarget.securityService'].userFullName}:${schoolName}</p>
+<p>${sessionScope['scopedTarget.securityService'].userFullName}:${sessionScope['scopedTarget.securityService'].schoolName}</p>
 </div>
 <div id="header-wrapper">
 <div id="header">
 	<div id="logo">
-		<a href="${pageContext.request.contextPath}/myschool/"><img src="${pageContext.request.contextPath}${logoPath}" title="${schoolName}" alt="${schoolName}"></a>
+		<a href="${pageContext.request.contextPath}/myschool/"><img src="${pageContext.request.contextPath}${sessionScope['scopedTarget.securityService'].logo}" title="${sessionScope['scopedTarget.securityService'].schoolName}" alt="${sessionScope['scopedTarget.securityService'].schoolName}"></a>
 	</div>
 	<div id="menu">
 		<ul>
@@ -33,7 +35,7 @@ function getContext(){
 			<li id="employee">
 				<a>Employees &#9662;</a>
 				<ul class="dropdown">
-	                <li><a href="#">New Employee</a></li>
+	                <li><a href="${pageContext.request.contextPath}/myschool/newEmployee">New Employee</a></li>
 	                <li><a href="#">List All Employees</a></li>
 	                <li><a href="#">Terminate an Employee</a></li>
             	</ul>

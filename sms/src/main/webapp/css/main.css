@@ -321,5 +321,15 @@ input[type="button"].disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
-
 /*Input Button CSS End*/
+
+/*select CSS start*/
+select{
+	border: 2px solid #c1bcbd;
+	height: 35px;
+	width: 300px;
+	padding: 5px;
+	border-radius: 4px;
+	box-shadow: none;
+}
+/*select CSS ends*/

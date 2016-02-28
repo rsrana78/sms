@@ -13,8 +13,11 @@ public class SessionData implements Serializable{
 	private String fullName;
 	private Integer schoolId;
 	private String schoolName;
-	private UserInfo userInfo;
 	private String userIp;
+	private String imagePath;
+	private String userType;
+	private Integer campusId;
+	private String campusName;
 	
 	public String getUserName() {
 		return userName;
@@ -40,16 +43,34 @@ public class SessionData implements Serializable{
 	public void setSchoolName(String schoolName) {
 		this.schoolName = schoolName;
 	}
-	public UserInfo getUserInfo() {
-		return userInfo;
-	}
-	public void setUserInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
-	}
 	public String getUserIp() {
 		return userIp;
 	}
 	public void setUserIp(String userIp) {
 		this.userIp = userIp;
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+	public Integer getCampusId() {
+		return campusId;
+	}
+	public void setCampusId(Integer campusId) {
+		this.campusId = campusId;
+	}
+	public String getCampusName() {
+		return campusName;
+	}
+	public void setCampusName(String campusName) {
+		this.campusName = campusName;
 	}
 }

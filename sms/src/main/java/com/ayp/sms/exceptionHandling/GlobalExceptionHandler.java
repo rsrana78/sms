@@ -1,6 +1,26 @@
 package com.ayp.sms.exceptionHandling;
 
-import static com.ayp.sms.util.AppConstants.*;
+import static com.ayp.sms.util.AppConstants.FAILURE;
+import static com.ayp.sms.util.AppConstants.PAGE_404;
+import static com.ayp.sms.util.AppConstants.SMS_ERROR_PAGE_REDIRECT_PATH;
+import static com.ayp.sms.util.ExceptionMessages.ARITHMETIC_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.DATABASE_CONNECTION_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.DATA_NOT_READABLE_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.EMAIL_ADDRESS_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.EMAIL_MESSAGE_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.ERROR_MESSAGE;
+import static com.ayp.sms.util.ExceptionMessages.FILE_ATTACHMENTS_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.ILLEGAL_STATE_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.IO_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.JSON_GENARATION_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.JSON_PROCESSING_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.MAIN_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.NULL_POINTER_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.NUMBER_FORMAT_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.PARSER_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.RECORD_NOT_FOUND_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.SQL_EXCEPTION;
+import static com.ayp.sms.util.ExceptionMessages.TYPE_MISMATCH_EXCEPTION;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,13 +44,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import com.ayp.sms.dto.ResponseObject;
+import com.ayp.sms.log.SMSLogger;
+import com.ayp.sms.util.ResponseUtil;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
-import com.ayp.sms.dto.ResponseObject;
-import com.ayp.sms.log.SMSLogger;
-import com.ayp.sms.util.ResponseUtil;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

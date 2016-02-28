@@ -42,11 +42,11 @@ public class UserInfo implements Serializable {
 
 	@Basic
 	@Column(name="school")
-	private int school;
+	private Integer school;
 
 	@Basic
 	@Column(nullable=false, name="schoolCampus")
-	private int schoolCampus;
+	private Integer schoolCampus;
 
 	@Basic
 	@Column(name="student")
@@ -96,19 +96,19 @@ public class UserInfo implements Serializable {
 		this.password = password;
 	}
 
-	public int getSchool() {
+	public Integer getSchool() {
 		return school;
 	}
 
-	public void setSchool(int school) {
+	public void setSchool(Integer school) {
 		this.school = school;
 	}
 
-	public int getSchoolCampus() {
+	public Integer getSchoolCampus() {
 		return schoolCampus;
 	}
 
-	public void setSchoolCampus(int schoolCampus) {
+	public void setSchoolCampus(Integer schoolCampus) {
 		this.schoolCampus = schoolCampus;
 	}
 
@@ -120,7 +120,7 @@ public class UserInfo implements Serializable {
 		this.student = student;
 	}
 
-	public boolean getSuperUser() {
+	public boolean isSuperUser() {
 		return superUser;
 	}
 

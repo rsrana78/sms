@@ -8,8 +8,10 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Cloud Schools</title>
 <script src="${pageContext.request.contextPath}/js/jquery-2.2.0.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/main.js" type="text/javascript"></script>
 <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
 <link href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister' rel='stylesheet' type='text/css'>
 <script type="text/javascript">
 var context = getContext();

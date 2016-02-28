@@ -44,4 +44,14 @@ public class SecurityServiceImpl implements SecurityService{
 		else
 			return false;
 	}
+
+	@Override
+	public String getSchoolName() {
+		return sessionData.getSchoolName();
+	}
+
+	@Override
+	public String getLogo() {
+		return sessionData.getImagePath();
+	}
 }
