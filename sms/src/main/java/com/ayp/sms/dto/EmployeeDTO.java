@@ -19,6 +19,7 @@ public class EmployeeDTO implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private Integer id;
 	private String name;
 	private String fatherName;
 	private String cnic;
@@ -28,6 +29,9 @@ public class EmployeeDTO implements Serializable{
 	private Integer type;
 	private Integer qualification;
 	private String address;
+	private String empType;
+	private String empQualification;
+	private String imagePath;
 	private List<EmployeeType> employeeTypeList;
 	private List<Qualification> qualificationList;
 	
@@ -96,6 +100,30 @@ public class EmployeeDTO implements Serializable{
 	}
 	public void setQualificationList(List<Qualification> qualificationList) {
 		this.qualificationList = qualificationList;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getEmpType() {
+		return empType;
+	}
+	public void setEmpType(String empType) {
+		this.empType = empType;
+	}
+	public String getEmpQualification() {
+		return empQualification;
+	}
+	public void setEmpQualification(String empQualification) {
+		this.empQualification = empQualification;
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 }

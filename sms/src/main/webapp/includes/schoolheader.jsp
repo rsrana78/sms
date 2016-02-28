@@ -22,12 +22,12 @@ function getContext(){
 </head>
 <body>
 <div id="main-header">
-<p>${sessionScope['scopedTarget.securityService'].userFullName}:${sessionScope['scopedTarget.securityService'].schoolName}</p>
+<p>${sessionScope['scopedTarget.securityService'].userFullName}:${sessionScope['scopedTarget.securityService'].campusName}</p>
 </div>
 <div id="header-wrapper">
 <div id="header">
 	<div id="logo">
-		<a href="${pageContext.request.contextPath}/myschool/"><img src="${pageContext.request.contextPath}${sessionScope['scopedTarget.securityService'].logo}" title="${sessionScope['scopedTarget.securityService'].schoolName}" alt="${sessionScope['scopedTarget.securityService'].schoolName}"></a>
+		<a href="${pageContext.request.contextPath}/myschool/"><img src="${pageContext.request.contextPath}${sessionScope['scopedTarget.securityService'].logo}" title="${sessionScope['scopedTarget.securityService'].campusName}" alt="${sessionScope['scopedTarget.securityService'].campusName}"></a>
 	</div>
 	<div id="menu">
 		<ul>

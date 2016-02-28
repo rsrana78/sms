@@ -60,6 +60,8 @@ public class DatabaseConfig {
         dataSource.setUrl(Preconditions.checkNotNull(env.getProperty(JDBC_URL)));
         dataSource.setUsername(Preconditions.checkNotNull(env.getProperty(JDBC_USERNAME)));
         dataSource.setPassword(Preconditions.checkNotNull(env.getProperty(JDBC_PASSWORD)));
+        IMAGE_BASE_URL = env.getProperty("image.base.url");
+        NO_IMAGE_URL = env.getProperty("no.image.url");
         return dataSource;
     }
 

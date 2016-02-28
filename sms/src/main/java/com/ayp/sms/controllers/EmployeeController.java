@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ayp.sms.dto.EmployeeDTO;
 import com.ayp.sms.dto.ResponseObject;
 import com.ayp.sms.service.EmployeeService;
+import com.ayp.sms.service.SecurityService;
 import com.ayp.sms.util.ResponseUtil;
 
 import static com.ayp.sms.util.AppConstants.SUCCESS;
@@ -33,6 +34,9 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
+	@Autowired
+	private SecurityService securityService;
+	
 	@RequestMapping(value = "/myschool/newEmployee", method = RequestMethod.GET)
 	public String newEmployee(Locale locale, Model model){
 		EmployeeDTO dto = new EmployeeDTO();
@@ -46,6 +50,12 @@ public class EmployeeController {
 	@RequestMapping(value = "/myschool/createEmployee", method = RequestMethod.POST)
 	public ResponseObject createNewEmployee(EmployeeDTO dto, HttpServletRequest request, HttpServletResponse response){
 		return ResponseUtil.createResponseObject(SUCCESS, FAILURE, null);
+	}
+	
+	@RequestMapping(value = "/myschool/getAllEmployees", method = RequestMethod.GET)
+	public String getAllEmployees(Locale locale, Model model){
+		model.addAttribute("empList", employeeService.getAllEmployees(securityService.getCampusId()));
+		return "school/listAllEmployees";
 	}
 
 }

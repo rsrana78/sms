@@ -20,5 +20,8 @@ public final class AppConstants {
     public final static String PAGE_404 = "/errorPages/404";
     public final static String ERROR_PAGE = "/errorPages/error";
     public final static String SMS_ERROR_PAGE_REDIRECT_PATH = "/SMS/errorPages/error.jsp";
-      
+    
+    //image bas path
+    public static String IMAGE_BASE_URL = null;
+    public static String NO_IMAGE_URL = null;      
 }

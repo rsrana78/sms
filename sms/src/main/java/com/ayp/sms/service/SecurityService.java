@@ -10,6 +10,7 @@ public interface SecurityService {
 	public SessionData getSessionData();
 	public void setSessionData(SessionData sessionData);
 	public boolean getIsUserLoggedIn();
-	public String getSchoolName();
+	public String getCampusName();
 	public String getLogo();
+	public Integer getCampusId();
 }

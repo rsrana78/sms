@@ -1,5 +1,6 @@
 package com.ayp.sms.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +8,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ayp.sms.domain.Employee;
 import com.ayp.sms.domain.EmployeeType;
 import com.ayp.sms.domain.Qualification;
+import com.ayp.sms.dto.EmployeeDTO;
 import com.ayp.sms.repository.EmployeeRepository;
 import com.ayp.sms.repository.EmployeeTypeRepository;
 import com.ayp.sms.repository.QualificationRepository;
+import com.ayp.sms.util.DomainMapper;
 
 /**
  * 
@@ -41,6 +45,18 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public List<Qualification> getQualificationList() {
 		return qualificationRepository.findAll();
+	}
+
+	@Override
+	public List<EmployeeDTO> getAllEmployees(Integer campusId) {
+		if(campusId == null)
+			return null;
+		List<EmployeeDTO> employeeDTOList = new ArrayList<EmployeeDTO>();
+		List<Employee> employeeList = employeeRepository.getAllEmployee(campusId);
+		for(Employee employee:employeeList){
+			employeeDTOList.add(DomainMapper.createEmployeeDTO(employee));
+		}
+		return employeeDTOList;
 	}
 
 }

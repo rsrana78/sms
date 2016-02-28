@@ -10,7 +10,8 @@ public enum UserTypeEnum {
 	STUDENT(1, "student"),
 	EMPLOYEE(2, "employee"),
 	PRINCIPAL(3, "principal"),
-	ADMIN(4, "admin");
+	OWNER(4, "owner"),
+	ADMIN(5, "admin");
 	
 	private Integer id;
 	private String type;

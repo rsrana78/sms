@@ -68,6 +68,10 @@ public class Campus implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="schoolId", nullable=false)
 	private School school;
+	
+	@Basic
+	@Column(name="monogram")
+	private String monogram;
 
 	@Basic(fetch = FetchType.LAZY)
 	@OneToMany(mappedBy="campus")
@@ -155,6 +159,14 @@ public class Campus implements Serializable {
 
 	public void setSchool(School school) {
 		this.school = school;
+	}
+
+	public String getMonogram() {
+		return monogram;
+	}
+
+	public void setMonogram(String monogram) {
+		this.monogram = monogram;
 	}
 
 	public List<Student> getStudents() {

@@ -102,6 +102,10 @@ public class Employee implements Serializable {
 	@Basic
 	@OneToMany(mappedBy="id")
 	private List<SalaryDetail> salaryDetails;
+	
+	@Basic
+	@OneToOne(mappedBy="employee")
+	private UserInfo user;
 
 	public Integer getEmployeeId() {
 		return employeeId;
@@ -245,6 +249,22 @@ public class Employee implements Serializable {
 
 	public void setSalaryDetails(List<SalaryDetail> salaryDetails) {
 		this.salaryDetails = salaryDetails;
+	}
+
+	public Campus getSchool() {
+		return school;
+	}
+
+	public void setSchool(Campus school) {
+		this.school = school;
+	}
+
+	public UserInfo getUser() {
+		return user;
+	}
+
+	public void setUser(UserInfo user) {
+		this.user = user;
 	}
 
 }

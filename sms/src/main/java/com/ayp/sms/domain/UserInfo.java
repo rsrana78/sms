@@ -40,17 +40,17 @@ public class UserInfo implements Serializable {
 	@Column(nullable=false, name="password")
 	private String password;
 
-	@Basic
-	@Column(name="school")
-	private Integer school;
+	@ManyToOne
+	@JoinColumn(name="school")
+	private School school;
 
-	@Basic
-	@Column(nullable=false, name="schoolCampus")
-	private Integer schoolCampus;
+	@ManyToOne
+	@JoinColumn(name="schoolCampus")
+	private Campus schoolCampus;
 
-	@Basic
-	@Column(name="student")
-	private boolean student;
+	@ManyToOne
+	@JoinColumn(name="student")
+	private Student student;
 
 	@Basic
 	@Column(name="superUser")
@@ -60,9 +60,13 @@ public class UserInfo implements Serializable {
 	@Column(nullable=false, name="userName")
 	private String userName;
 
+	@ManyToOne
+	@JoinColumn(name="employee")
+	private Employee employee;
+	
 	@Basic
-	@Column(name="employee")
-	private Integer employee;
+	@Column(name="active")
+	private boolean active;
 
 	public Integer getId() {
 		return id;
@@ -96,27 +100,27 @@ public class UserInfo implements Serializable {
 		this.password = password;
 	}
 
-	public Integer getSchool() {
+	public School getSchool() {
 		return school;
 	}
 
-	public void setSchool(Integer school) {
+	public void setSchool(School school) {
 		this.school = school;
 	}
 
-	public Integer getSchoolCampus() {
+	public Campus getSchoolCampus() {
 		return schoolCampus;
 	}
 
-	public void setSchoolCampus(Integer schoolCampus) {
+	public void setSchoolCampus(Campus schoolCampus) {
 		this.schoolCampus = schoolCampus;
 	}
 
-	public boolean isStudent() {
+	public Student getStudent() {
 		return student;
 	}
 
-	public void setStudent(boolean student) {
+	public void setStudent(Student student) {
 		this.student = student;
 	}
 
@@ -136,12 +140,19 @@ public class UserInfo implements Serializable {
 		this.userName = userName;
 	}
 
-	public Integer getEmployee() {
+	public Employee getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(Integer employee) {
+	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 }

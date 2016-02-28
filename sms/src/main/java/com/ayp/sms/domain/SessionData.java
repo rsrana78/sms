@@ -11,8 +11,6 @@ public class SessionData implements Serializable{
 	
 	private String userName;
 	private String fullName;
-	private Integer schoolId;
-	private String schoolName;
 	private String userIp;
 	private String imagePath;
 	private String userType;
@@ -30,18 +28,6 @@ public class SessionData implements Serializable{
 	}
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
-	}
-	public Integer getSchoolId() {
-		return schoolId;
-	}
-	public void setSchoolId(Integer schoolId) {
-		this.schoolId = schoolId;
-	}
-	public String getSchoolName() {
-		return schoolName;
-	}
-	public void setSchoolName(String schoolName) {
-		this.schoolName = schoolName;
 	}
 	public String getUserIp() {
 		return userIp;

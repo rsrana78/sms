@@ -13,6 +13,7 @@ import com.ayp.sms.domain.UserInfo;
 import com.ayp.sms.dto.LoginUserDTO;
 import com.ayp.sms.enums.UserTypeEnum;
 import com.ayp.sms.repository.UserInfoRepository;
+import com.ayp.sms.util.CompleteURLUtil;
 
 /**
  * 
@@ -41,22 +42,25 @@ public class LoginServiceImpl implements LoginService{
 			SessionData sessionData = securityService.getSessionData();
 			sessionData.setUserName(dto.getUserName());
 			sessionData.setFullName(user.getFullName());
-			if(user.isStudent())
-				sessionData.setUserType(UserTypeEnum.STUDENT.getType());
-			else if(user.isSuperUser())
+			if(user.getSchoolCampus() != null){
+				sessionData.setCampusId(user.getSchoolCampus().getId());
+				sessionData.setCampusName(user.getSchoolCampus().getCampusName());
+				sessionData.setImagePath(CompleteURLUtil.completeURL(user.getSchoolCampus().getMonogram()));
+			}
+			else if(user.getSchool() != null)
+				sessionData.setImagePath(CompleteURLUtil.completeURL(user.getSchool().getMonogram()));
+			else
+				sessionData.setImagePath(CompleteURLUtil.completeURL(null));
+			if(user.isSuperUser())
 				sessionData.setUserType(UserTypeEnum.ADMIN.getType());
+			else if(user.getStudent() != null)
+				sessionData.setUserType(UserTypeEnum.STUDENT.getType());
 			else if(user.getEmployee() != null)
 				sessionData.setUserType(UserTypeEnum.EMPLOYEE.getType());
-			else
+			else if(user.getSchool() == null && user.getSchoolCampus() != null)
 				sessionData.setUserType(UserTypeEnum.PRINCIPAL.getType());
-			//TODO set real school data
-			//also make foreign keys for campus and user in userinfo
-			//set real logo path from database
-			sessionData.setSchoolId(user.getSchool());
-			sessionData.setCampusId(user.getSchoolCampus());
-			sessionData.setSchoolName(user.getSchool().toString());
-			sessionData.setCampusName(user.getSchoolCampus().toString());
-			sessionData.setImagePath("/images/monograms/a.png");
+			else if(user.getSchool() != null && user.getSchoolCampus() == null)
+				sessionData.setUserType(UserTypeEnum.OWNER.getType());
 			securityService.setSessionData(sessionData);
 			return true;
 		}

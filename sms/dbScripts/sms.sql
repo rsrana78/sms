@@ -431,3 +431,48 @@ CREATE TABLE `usersLogin` (
 
 ALTER TABLE `school` 
 ADD COLUMN `ownerImg` VARCHAR(45) NOT NULL AFTER `ownerName`;
+
+ALTER TABLE `usersLogin` 
+ADD COLUMN `active` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '' AFTER `employee`;
+
+ALTER TABLE `usersLogin` 
+ADD CONSTRAINT `fk_usersLogin_1`
+  FOREIGN KEY (`schoolCampus`)
+  REFERENCES `campus` (`id`)
+  ON DELETE RESTRICT
+  ON UPDATE RESTRICT;
+  
+ALTER TABLE `usersLogin` 
+ADD CONSTRAINT `fk_usersLogin_2`
+  FOREIGN KEY (`school`)
+  REFERENCES `school` (`id`)
+  ON DELETE RESTRICT
+  ON UPDATE RESTRICT;
+  
+ALTER TABLE `usersLogin` 
+ADD CONSTRAINT `fk_usersLogin_3`
+  FOREIGN KEY (`employee`)
+  REFERENCES `employee` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `usersLogin` 
+ADD CONSTRAINT `fk_usersLogin_4`
+  FOREIGN KEY (`student`)
+  REFERENCES `students` (`registrationNumber`)
+  ON DELETE RESTRICT
+  ON UPDATE RESTRICT;
+  
+ALTER TABLE `usersLogin` 
+DROP FOREIGN KEY `fk_usersLogin_1`;
+
+ALTER TABLE `usersLogin` 
+CHANGE COLUMN `schoolCampus` `schoolCampus` INT(11) NULL COMMENT '' ;
+
+ALTER TABLE `usersLogin` 
+ADD CONSTRAINT `fk_usersLogin_1`
+  FOREIGN KEY (`schoolCampus`)
+  REFERENCES `campus` (`id`);
+
+ALTER TABLE `campus` 
+ADD COLUMN `monogram` VARCHAR(250) NOT NULL;
