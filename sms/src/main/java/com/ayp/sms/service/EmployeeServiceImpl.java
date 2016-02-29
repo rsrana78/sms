@@ -59,4 +59,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeDTOList;
 	}
 
+	@Override
+	public String createNewEmployee(EmployeeDTO dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

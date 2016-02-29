@@ -16,30 +16,30 @@ $(document).ready(function(){
 	$('#team').removeClass('current_page_item');
 });
 </script>
-<!-- Change button class -->
-
-<div id="nav">
-<!-- This div is for space between header and footer -->
-</div>
-
-<!-- Login -->
-
-<!-- <div class="page-heading">
-	<p>"Please login to get access to your school"</p>
-</div> -->
-
-<div id="login-form">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="container col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	<div id="logIn-form" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<form method="POST" id="login-form" name="login-form">
-	  <fieldset>
 	    <p class="legend-text">Login to your school</p>
-	    <input type="text" id="login-user-name" name="username" placeholder="User name or email" maxlength="50"><br><br>
-	    <input type="password" id="login-password" name="password" placeholder="Password" autocomplete="off" maxlength="50"><br><br>
-	    <input type="checkbox" id="remember" name="remember">Keep me logged in<br><br>
-	    <p id="message" class="error-message"></p>
-	    <input type="button" id='loginBtn' value="Login" title="Login to the system" onclick="validateLoginUser()"/>
-	  </fieldset>
+	    <div class="form-group">
+	    <input type="text" class="form-control col-lg-4 col-md-4 col-sm-6 col-xs-6"  id="login-user-name" onblur="loginUserName()" placeholder="Complete Name" maxlength="100"><br><br>
+		</div>
+		<div class="form-group">
+	    <input type="password"  class="col-lg-4 col-md-4 col-sm-6 col-xs-6" id="login-password" name="password" placeholder="Password" autocomplete="off" maxlength="50" onblur="loginUserPassword();" ><br><br>
+		</div> 
+	    <input type="checkbox" id="remember" name="remember">  Keep me logged in <br><br>
+	    <button  type="button" class="btn btn-success" title="Login to the system" onclick="validateLoginUser()">Login</button>
 	</form>
+	    
+  </div> 	
 </div>
-
-<!-- Login -->
+</div>
+<!-- Login validation error message -->
+<div class="col-lg-12 col-md-12" id="error_Field">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  All fields are required...!
+</div>
+</div>
 <%@ include file="/includes/footer.jsp"%>

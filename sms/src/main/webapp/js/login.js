@@ -1,8 +1,13 @@
 /*Validate login fields*/
-function validateLoginUser(){
+function errorMessage()
+{
+	$('#message').text('');
+	$("#error_Field").show();
+	$("#error_Field").fadeOut(5000);
+}
+function loginUserName()
+{
 	var user = $('#login-user-name').val();
-	var password = $('#login-password').val();
-	var remember = false;
 	if(user == ""){
 		$('#login-user-name').css('border-color', 'red');
 		$('#message').text('Please enter username');
@@ -10,16 +15,35 @@ function validateLoginUser(){
 	else if(user.length < 6){
 		$('#login-user-name').css('border-color', 'red');
 		$('#message').text('user name must be atleast 6 characters');
-	}
-	else if(password == ""){
+	}else
+		{
+		$('#login-user-name').css('border-color', 'green');
+		}
+}
+function loginUserPassword()
+{
+	var password = $('#login-password').val();
+	if(password == ""){
 		$('#login-password').css('border-color', 'red');
 		$('#message').text('Please enter password');
 	}
 	else if(password.length < 6){
 		$('#login-password').css('border-color', 'red');
 		$('#message').text('password must be atleast 6 characters');
+	}else
+	{
+		$('#login-password').css('border-color', 'green');
 	}
-	else{
+}
+function validateLoginUser(){
+	var password = $('#login-password').val();
+	var user     = $('#login-user-name').val();
+	if(password || user == "")
+	{
+		loginUserName();
+		loginUserPassword();
+		errorMessage();
+	}else{
 		if($('#remember').is(":checked")){
 			remember = true;
 		}

@@ -1,5 +1,8 @@
 package com.ayp.sms.controllers;
 
+import static com.ayp.sms.util.AppConstants.SUCCESS;
+import static com.ayp.sms.util.AppConstants.FAILURE;
+
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ayp.sms.dto.EmployeeDTO;
 import com.ayp.sms.dto.ResponseObject;
+import com.ayp.sms.dto.ValidationStatusDTO;
 import com.ayp.sms.service.EmployeeService;
 import com.ayp.sms.service.SecurityService;
 import com.ayp.sms.util.ResponseUtil;
-
-import static com.ayp.sms.util.AppConstants.SUCCESS;
-import static com.ayp.sms.util.AppConstants.FAILURE;
+import com.ayp.sms.validation.EmployeeValidation;
 
 
 /**
@@ -49,7 +51,11 @@ public class EmployeeController {
 	@ResponseBody
 	@RequestMapping(value = "/myschool/createEmployee", method = RequestMethod.POST)
 	public ResponseObject createNewEmployee(EmployeeDTO dto, HttpServletRequest request, HttpServletResponse response){
-		return ResponseUtil.createResponseObject(SUCCESS, FAILURE, null);
+		ValidationStatusDTO validation = EmployeeValidation.validateNewEmployee(dto);
+		if(!validation.isValidated())
+			return ResponseUtil.createResponseObject(FAILURE, validation.getValidationMessage(), null);
+		String message = employeeService.createNewEmployee(dto);
+		return ResponseUtil.createResponseObject(SUCCESS, message, null);
 	}
 	
 	@RequestMapping(value = "/myschool/getAllEmployees", method = RequestMethod.GET)

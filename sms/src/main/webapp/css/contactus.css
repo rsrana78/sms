@@ -1,19 +1,61 @@
 @charset "utf-8";
 /* CSS Document */
 
-
+#error_Field
+{
+	display: none;
+	position: fixed;
+	bottom: 90px;
+	left: 2px;
+}
 .legend-text{
 	font-family: courier;
 	font-size: 20px;
-	text-align: center;
 	margin-top: 5px;
 	color: brown;
+    align:center;
 }
 
-form {
-    width: 40%;
-    text-align: left;
-    margin: 0 auto;
-    margin-top: 15px;
-    margin-bottom: 40px;
+@media (min-width:800px) and (max-width:1500px){
+.container
+{
+	margin-left: 26%;
+}
+}
+#contact-form
+{
+	border: 3px solid #ccc;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 18px;
+}
+#submit-reset
+{
+	float: right;
+}
+#btn_contacts
+{
+	padding: 0 !important;
+	margin: 0;
+	margin-top: 10px !important;
+}
+@media (min-width:400px) and (max-width:1500px){
+	.center-block {
+       display: block;
+       
+	}
+}
+@media (min-width:400px) and (max-width:1200px)
+{
+	#contact-form input
+	{
+	   width:60% !important;
+	}
+}
+@media (min-width:0px) and (max-width:400px)
+{
+	#contact-form input
+	{
+	   width:90% !important;
+	}
 }

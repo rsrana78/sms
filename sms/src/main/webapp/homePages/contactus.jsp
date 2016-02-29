@@ -15,34 +15,44 @@ $(document).ready(function(){
 	$('#login').removeClass('current_page_item');
 	$('#team').removeClass('current_page_item');
 });
-</script>
-<!-- Change button class -->
-
-<!-- Contact us -->
-
-<div id="nav">
-<!-- This div is for space between header and footer -->
-</div>
-
-<!-- <div class="page-heading">
-	<p>"Please fill the form below and submit your request"</p>
-</div> -->
-
-<div id="contact-form">
+</script> 
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="container col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	<div id="contact-form" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<form>
-	  <fieldset>
 	    <p class="legend-text">Please fill and submit this form</p>
-	    <input id="contact-name" type="text" placeholder="Complete Name" maxlength="100"><br><br>
-	    <input id="contact-phone" type="text" maxlength="11" placeholder="Phone number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'><br><br>
-	    <input id="contact-email" type="text" placeholder="Email for reply" maxlength="100"><br><br>
-	    <textarea id="contact-message" name="message" cols="45" rows="15" placeholder="Enter Your Message Here..." maxlength="1000"></textarea><br><br>
-	    <div class="error-message">
+	    <div class="form-group">
+	    <input id="contact-name" type="text" class="form-control col-lg-4 col-md-4 col-sm-6 col-xs-6" onblur="nameOfUser()" placeholder="Complete Name" maxlength="100"><br><br>
+		</div>
+		<div class="form-group">
+	    <input id="contact-phone" type="text" class="col-lg-4 col-md-4 col-sm-6 col-xs-6"  maxlength="11" onblur="phoneOfUser()" placeholder="Phone number" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.keyCode === event.DOM_VK_BACK_SPACE || event.keyCode === event.DOM_VK_DELETE'><br><br>
+		</div>
+		<div class="form-group">	   
+	    <input id="contact-email" type="text" class="col-lg-4 col-md-4 col-sm-6 col-xs-6" onblur="emailOfUser()" placeholder="Email for reply" maxlength="100"><br><br>
+		</div>
+		<div class="form-group">   
+	    <textarea id="contact-message" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" name="message" cols="45" rows="15"  onblur="messageOfUser()" placeholder="Enter Your Message Here..." maxlength="1000"></textarea><br /><br />
+	    </div>
+	    <div class="error-message col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	    <p id="message"></p>
 	    </div>
-	    <input type="button" id='submit-contact' value="Submit" onclick="validateContactUser()" title="Send your request"/>
-	    <input type="reset" id='submit-reset' value="Reset" title="Reset This Form" style="margin-left: 340px" onclick="reset()"/>
-	  </fieldset>
+	    
+	    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="btn_contacts">
+	    <button class="btn btn-success" id='submit-contact' type="button" onclick="validateContactUser()" title="Send your request">Submit</button>
+	    <button class="btn btn-danger" id='submit-reset' type="button" title="Reset This Form" onclick="reset()">Reset</button>
+	    </div>
+	    
 	</form>
+	    
+  </div> 	
+</div>
+</div>
+<div class="col-lg-12 col-md-12" id="error_Field">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  All fields are required...!
+</div>
 </div>
 
 <!-- Contact us -->

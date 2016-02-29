@@ -11,5 +11,6 @@ public interface EmployeeService {
 	public List<EmployeeType> getEmployeeTypeList();
 	public List<Qualification> getQualificationList();
 	public List<EmployeeDTO> getAllEmployees(Integer campusId);
+	public String createNewEmployee(EmployeeDTO dto);
 
 }

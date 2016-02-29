@@ -17,7 +17,7 @@ import com.ayp.sms.domain.Employee;
 @Transactional
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 	
-	@Query("select emp from Employee emp where emp.school.id=?1")
+	@Query("select emp from Employee emp where emp.school.id=?1 and emp.serving=1")
 	public List<Employee> getAllEmployee(Integer campusId);
 
 }
