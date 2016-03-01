@@ -2,6 +2,8 @@ package com.ayp.sms.controllers;
 
 import static com.ayp.sms.util.AppConstants.SUCCESS;
 import static com.ayp.sms.util.AppConstants.FAILURE;
+import static com.ayp.sms.util.ApplicationMessages.EMPLOYEE_TERMINATED;
+import static com.ayp.sms.util.ApplicationMessages.EMPLOYEE_NOT_TERMINATED;
 
 import java.util.Locale;
 
@@ -69,7 +71,10 @@ public class EmployeeController {
 	@ResponseBody
 	@RequestMapping(value = "/myschool/terminateAnEmployee", method = RequestMethod.POST)
 	public ResponseObject terminateAllEmployees(@RequestBody ReasonDTO dto){
-		return ResponseUtil.createResponseObject(SUCCESS, "", null);
+		if(employeeService.terminateEmployee(dto))
+			return ResponseUtil.createResponseObject(SUCCESS, EMPLOYEE_TERMINATED, null);
+		else
+			return ResponseUtil.createResponseObject(FAILURE, EMPLOYEE_NOT_TERMINATED, null);
 	}
 
 }

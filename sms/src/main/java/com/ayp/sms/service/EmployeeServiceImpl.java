@@ -15,6 +15,7 @@ import com.ayp.sms.domain.EmployeeType;
 import com.ayp.sms.domain.Qualification;
 import com.ayp.sms.domain.UserInfo;
 import com.ayp.sms.dto.EmployeeDTO;
+import com.ayp.sms.dto.ReasonDTO;
 import com.ayp.sms.repository.CampusRepository;
 import com.ayp.sms.repository.EmployeeRepository;
 import com.ayp.sms.repository.EmployeeTypeRepository;
@@ -92,6 +93,21 @@ public class EmployeeServiceImpl implements EmployeeService{
 		user.setPassword(encryptedPassword.toHex());
 		userInfoRepository.save(user);
 		return EMPLOYEE_CREATED;
+	}
+
+	@Override
+	public boolean terminateEmployee(ReasonDTO dto) {
+		if(dto.getId() != null && dto.getReason() != null){
+			String[] ids = dto.getId().split(",");
+			if(ids.length>1)
+				return false;
+			Employee employee = employeeRepository.findOne(new Integer(dto.getId()));
+			employee.setServing(false);
+			employee.getUser().setActive(false);
+			employeeRepository.save(employee);
+			return true;
+		}
+		return false;
 	}
 
 }
