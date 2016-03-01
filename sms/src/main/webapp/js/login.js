@@ -38,8 +38,7 @@ function loginUserPassword()
 function validateLoginUser(){
 	var password = $('#login-password').val();
 	var user     = $('#login-user-name').val();
-	var remember = false;
-	if(password == "" || user == "")
+	if(password || user == "")
 	{
 		loginUserName();
 		loginUserPassword();

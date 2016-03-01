@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ayp.sms.dto.EmployeeDTO;
+import com.ayp.sms.dto.ReasonDTO;
 import com.ayp.sms.dto.ResponseObject;
 import com.ayp.sms.dto.ValidationStatusDTO;
 import com.ayp.sms.service.EmployeeService;
@@ -62,6 +64,12 @@ public class EmployeeController {
 	public String getAllEmployees(Locale locale, Model model){
 		model.addAttribute("empList", employeeService.getAllEmployees(securityService.getCampusId()));
 		return "school/listAllEmployees";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/myschool/terminateAnEmployee", method = RequestMethod.POST)
+	public ResponseObject terminateAllEmployees(@RequestBody ReasonDTO dto){
+		return ResponseUtil.createResponseObject(SUCCESS, "", null);
 	}
 
 }
