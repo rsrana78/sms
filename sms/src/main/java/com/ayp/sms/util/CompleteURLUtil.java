@@ -12,4 +12,8 @@ public class CompleteURLUtil {
 			return IMAGE_BASE_URL+url;
 	}
 	
+	public static String getNoImageURL(){
+		return NO_IMAGE_URL;
+	}
+	
 }

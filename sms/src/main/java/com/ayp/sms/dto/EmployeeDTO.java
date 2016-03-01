@@ -32,6 +32,8 @@ public class EmployeeDTO implements Serializable{
 	private String empType;
 	private String empQualification;
 	private String imagePath;
+	private Integer gender;
+	private String joiningDate;
 	private List<EmployeeType> employeeTypeList;
 	private List<Qualification> qualificationList;
 	
@@ -124,6 +126,18 @@ public class EmployeeDTO implements Serializable{
 	}
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+	public Integer getGender() {
+		return gender;
+	}
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
+	public String getJoiningDate() {
+		return joiningDate;
+	}
+	public void setJoiningDate(String joiningDate) {
+		this.joiningDate = joiningDate;
 	}
 
 }

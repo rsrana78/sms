@@ -6,13 +6,22 @@ package com.ayp.sms.domain;
  */
 
 import java.io.Serializable;
-
-import javax.persistence.*;
-
 import java.math.BigDecimal;
 import java.util.Calendar;
-import java.sql.Timestamp;
 import java.util.List;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -47,7 +56,7 @@ public class Employee implements Serializable {
 
 	@Basic
 	@Column(nullable=false, name = "entryDate")
-	private Timestamp entryDate;
+	private Calendar entryDate;
 
 	@Basic
 	@Column(nullable=false, name = "fatherName")
@@ -106,6 +115,10 @@ public class Employee implements Serializable {
 	@Basic
 	@OneToOne(mappedBy="employee")
 	private UserInfo user;
+	
+	@Basic
+	@Column(name = "gender")
+	private Integer gender;
 
 	public Integer getEmployeeId() {
 		return employeeId;
@@ -139,11 +152,11 @@ public class Employee implements Serializable {
 		this.contactNumber = contactNumber;
 	}
 
-	public Timestamp getEntryDate() {
+	public Calendar getEntryDate() {
 		return entryDate;
 	}
 
-	public void setEntryDate(Timestamp entryDate) {
+	public void setEntryDate(Calendar entryDate) {
 		this.entryDate = entryDate;
 	}
 
@@ -265,6 +278,14 @@ public class Employee implements Serializable {
 
 	public void setUser(UserInfo user) {
 		this.user = user;
+	}
+
+	public Integer getGender() {
+		return gender;
+	}
+
+	public void setGender(Integer gender) {
+		this.gender = gender;
 	}
 
 }

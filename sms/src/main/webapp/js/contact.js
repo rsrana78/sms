@@ -1,4 +1,11 @@
-	
+function errorMessage()
+{
+	$('#message').text('');
+	$("#error_Field").show();
+	$("#error_Field").fadeOut(5000);
+}
+
+
 function nameOfUser(){
 		var name = $('#contact-name').val();
 	if(name == ""){
@@ -60,7 +67,7 @@ function nameOfUser(){
 		}
 		}	
     function validateContactUser(){
-	if(name || email || phone || message ==""){
+	if(name=="" || email=="" || phone=="" || message ==""){
        nameOfUser();
 		emailOfUser();
 		phoneOfUser();

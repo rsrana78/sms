@@ -476,3 +476,6 @@ ADD CONSTRAINT `fk_usersLogin_1`
 
 ALTER TABLE `campus` 
 ADD COLUMN `monogram` VARCHAR(250) NOT NULL;
+
+ALTER TABLE `employee` 
+ADD COLUMN `gender` INT(11) NOT NULL COMMENT '' AFTER `salary`;
