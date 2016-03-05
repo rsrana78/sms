@@ -37,7 +37,11 @@ public class LoginServiceImpl implements LoginService{
 		Subject currentUser = SecurityUtils.getSubject();
 		if(!currentUser.isAuthenticated()){
 			UsernamePasswordToken token = new UsernamePasswordToken(dto.getUserName(), dto.getPassword());
-			currentUser.login(token);
+			try{
+				currentUser.login(token);
+			}catch(Exception e){
+				return false;
+			}
 			UserInfo user = userInfoRepository.getUser(dto.getUserName());
 			SessionData sessionData = securityService.getSessionData();
 			sessionData.setUserName(dto.getUserName());

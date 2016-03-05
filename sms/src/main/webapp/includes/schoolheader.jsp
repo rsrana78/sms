@@ -31,13 +31,13 @@ function getContext(){
 	</div>
 	<div id="menu">
 		<ul>
-			<li id="home"><a href="${pageContext.request.contextPath}/myschool/">Home</a></li>
+			<li id="home"><a href="${pageContext.request.contextPath}/myschool/" title="Go to home page">Home</a></li>
 			<li id="employee">
 				<a>Employees &#9662;</a>
 				<ul class="dropdown">
-	                <li><a href="${pageContext.request.contextPath}/myschool/newEmployee">New Employee</a></li>
-	                <li><a href="#">List All Employees</a></li>
-	                <li><a href="#">Terminate an Employee</a></li>
+	                <li><a href="${pageContext.request.contextPath}/myschool/newEmployee" title="Create New Employee">New Employee</a></li>
+	                <li><a href="${pageContext.request.contextPath}/myschool/activeEmployees" title="Get List of All Active Employees">Active Employees</a></li>
+	                <li><a href="${pageContext.request.contextPath}/myschool/inactiveEmployees" title="Get List of All Terminated Employees">Inactive Employees</a></li>
             	</ul>
 			</li>
 			<li id="student">

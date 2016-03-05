@@ -44,11 +44,12 @@ public class LoginController {
 		try{
 			if(loginService.loginUser(dto))
 				return ResponseUtil.createResponseObject(SUCCESS, "Login Successfull", null);
+			else
+				return ResponseUtil.createResponseObject(FAILURE, "Username or Password is incorrect. Try again", null);
 		}catch(Exception e){
 			e.printStackTrace();
 			return ResponseUtil.createResponseObject(FAILURE, "Username or Password is incorrect. Try again", null);
 		}
-		return ResponseUtil.createResponseObject(FAILURE, "You are already logged in man!!!", null);
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

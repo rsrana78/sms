@@ -26,13 +26,11 @@ public class EmployeeDTO implements Serializable{
 	private String phone;
 	private String email;
 	private String salary;
-	private Integer type;
-	private Integer qualification;
+	private String qualification;
 	private String address;
 	private String empType;
-	private String empQualification;
 	private String imagePath;
-	private Integer gender;
+	private String gender;
 	private String joiningDate;
 	private List<EmployeeType> employeeTypeList;
 	private List<Qualification> qualificationList;
@@ -73,18 +71,6 @@ public class EmployeeDTO implements Serializable{
 	public void setSalary(String salary) {
 		this.salary = salary;
 	}
-	public Integer getType() {
-		return type;
-	}
-	public void setType(Integer type) {
-		this.type = type;
-	}
-	public Integer getQualification() {
-		return qualification;
-	}
-	public void setQualification(Integer qualification) {
-		this.qualification = qualification;
-	}
 	public String getAddress() {
 		return address;
 	}
@@ -115,29 +101,29 @@ public class EmployeeDTO implements Serializable{
 	public void setEmpType(String empType) {
 		this.empType = empType;
 	}
-	public String getEmpQualification() {
-		return empQualification;
-	}
-	public void setEmpQualification(String empQualification) {
-		this.empQualification = empQualification;
-	}
 	public String getImagePath() {
 		return imagePath;
 	}
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
-	public Integer getGender() {
-		return gender;
-	}
-	public void setGender(Integer gender) {
-		this.gender = gender;
-	}
 	public String getJoiningDate() {
 		return joiningDate;
 	}
 	public void setJoiningDate(String joiningDate) {
 		this.joiningDate = joiningDate;
+	}
+	public String getQualification() {
+		return qualification;
+	}
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }

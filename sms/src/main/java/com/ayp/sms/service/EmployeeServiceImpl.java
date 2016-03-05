@@ -1,6 +1,10 @@
 package com.ayp.sms.service;
 
+import static com.ayp.sms.util.ApplicationMessages.EMPLOYEE_CREATED;
+import static com.ayp.sms.util.ApplicationMessages.EMPLOYEE_EXIST;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.shiro.crypto.hash.Sha256Hash;
@@ -22,8 +26,6 @@ import com.ayp.sms.repository.EmployeeTypeRepository;
 import com.ayp.sms.repository.QualificationRepository;
 import com.ayp.sms.repository.UserInfoRepository;
 import com.ayp.sms.util.DomainMapper;
-
-import static com.ayp.sms.util.ApplicationMessages.EMPLOYEE_CREATED;
 
 /**
  * 
@@ -69,7 +71,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		if(campusId == null)
 			return null;
 		List<EmployeeDTO> employeeDTOList = new ArrayList<EmployeeDTO>();
-		List<Employee> employeeList = employeeRepository.getAllEmployee(campusId);
+		List<Employee> employeeList = employeeRepository.getAllEmployees(campusId);
 		for(Employee employee:employeeList){
 			employeeDTOList.add(DomainMapper.createEmployeeDTO(employee));
 		}
@@ -78,9 +80,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public String createNewEmployee(EmployeeDTO dto) {
+		Employee existing = employeeRepository.getEmployeeFromCNIC(dto.getCnic());
+		if(existing != null)
+			return EMPLOYEE_EXIST;
 		Campus campus = campusRepository.findOne(securityService.getCampusId());
-		EmployeeType employeeType = employeeTypeRepository.findOne(dto.getType());
-		Qualification qualification = qualificationRepository.findOne(dto.getQualification());
+		EmployeeType employeeType = employeeTypeRepository.findOne(new Integer(dto.getEmpType()));
+		Qualification qualification = qualificationRepository.findOne(new Integer(dto.getQualification()));
 		Employee employee = DomainMapper.createEmployee(dto);
 		employee.setCampuses(campus);
 		employee.setEmployeeType(employeeType);
@@ -94,6 +99,18 @@ public class EmployeeServiceImpl implements EmployeeService{
 		userInfoRepository.save(user);
 		return EMPLOYEE_CREATED;
 	}
+	
+	@Override
+	public List<EmployeeDTO> getAllTerminatedEmployees(Integer campusId) {
+		if(campusId == null)
+			return null;
+		List<EmployeeDTO> employeeDTOList = new ArrayList<EmployeeDTO>();
+		List<Employee> employeeList = employeeRepository.getAllTerminatedEmployees(campusId);
+		for(Employee employee:employeeList){
+			employeeDTOList.add(DomainMapper.createEmployeeDTO(employee));
+		}
+		return employeeDTOList;
+	}
 
 	@Override
 	public boolean terminateEmployee(ReasonDTO dto) {
@@ -103,11 +120,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 				return false;
 			Employee employee = employeeRepository.findOne(new Integer(dto.getId()));
 			employee.setServing(false);
+			employee.setReason(dto.getReason());
+			employee.setTerminationDate(Calendar.getInstance());
 			employee.getUser().setActive(false);
 			employeeRepository.save(employee);
 			return true;
 		}
 		return false;
 	}
-
 }

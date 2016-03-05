@@ -18,6 +18,12 @@ import com.ayp.sms.domain.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 	
 	@Query("select emp from Employee emp where emp.school.id=?1 and emp.serving=1")
-	public List<Employee> getAllEmployee(Integer campusId);
+	List<Employee> getAllEmployees(Integer campusId);
+	
+	@Query("select emp from Employee emp where emp.school.id=?1 and emp.serving=0")
+	List<Employee> getAllTerminatedEmployees(Integer campusId);
+	
+	@Query("select emp from Employee emp where emp.cnic=?1")
+	Employee getEmployeeFromCNIC(String cnic);
 
 }

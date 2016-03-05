@@ -27,7 +27,7 @@ public class DomainMapper {
 		dto.setId(employee.getEmployeeId());
 		dto.setAddress(employee.getEmployeeAddress());
 		dto.setCnic(employee.getCnic());
-		dto.setEmpQualification(employee.getQualification().getName());
+		dto.setQualification(employee.getQualification().getName());
 		dto.setEmpType(employee.getEmployeeType().getEmployeeTypeName());
 		dto.setFatherName(employee.getFatherName());
 		if(employee.getUser() != null)
@@ -36,6 +36,7 @@ public class DomainMapper {
 		dto.setName(employee.getEmployeeName());
 		dto.setPhone(employee.getContactNumber());
 		dto.setSalary(employee.getSalary().toString());
+		dto.setJoiningDate(DateUtil.convertCalendarToString(employee.getJoiningDate()));
 		return dto;
 	}
 	
@@ -46,9 +47,9 @@ public class DomainMapper {
 		employee.setEmployeeAddress(dto.getAddress());
 		employee.setEmployeeName(dto.getName());
 		employee.setFatherName(dto.getFatherName());
-		if(dto.getGender().equals(GenderEnum.MALE.getId()))
+		if(dto.getGender().equals(GenderEnum.MALE.getGender()))
 			employee.setGender(GenderEnum.MALE.getId());
-		else
+		else if(dto.getGender().equals(GenderEnum.FEMALE.getGender()))
 			employee.setGender(GenderEnum.FEMALE.getId());
 		if(dto.getImagePath() != null)
 			employee.setImagePath(dto.getImagePath());

@@ -12,6 +12,7 @@ public interface EmployeeService {
 	public List<EmployeeType> getEmployeeTypeList();
 	public List<Qualification> getQualificationList();
 	public List<EmployeeDTO> getAllEmployees(Integer campusId);
+	public List<EmployeeDTO> getAllTerminatedEmployees(Integer campusId);
 	public String createNewEmployee(EmployeeDTO dto);
 	public boolean terminateEmployee(ReasonDTO dto);
 

@@ -62,10 +62,16 @@ public class EmployeeController {
 		return ResponseUtil.createResponseObject(SUCCESS, message, null);
 	}
 	
-	@RequestMapping(value = "/myschool/getAllEmployees", method = RequestMethod.GET)
+	@RequestMapping(value = "/myschool/activeEmployees", method = RequestMethod.GET)
 	public String getAllEmployees(Locale locale, Model model){
 		model.addAttribute("empList", employeeService.getAllEmployees(securityService.getCampusId()));
-		return "school/listAllEmployees";
+		return "school/activeEmployees";
+	}
+	
+	@RequestMapping(value = "/myschool/inactiveEmployees", method = RequestMethod.GET)
+	public String getAllTerminatedEmployees(Locale locale, Model model){
+		model.addAttribute("empList", employeeService.getAllEmployees(securityService.getCampusId()));
+		return "school/terminatedEmployees";
 	}
 	
 	@ResponseBody

@@ -41,7 +41,7 @@ public class EmployeeValidation {
 		}else if(employee.getSalary() == null || employee.getSalary().trim().isEmpty()){
 			dto.setValidated(false);
 			dto.setValidationMessage("Please specify salary for this employee");
-		}else if(employee.getType() == null){
+		}else if(employee.getEmpType() == null){
 			dto.setValidated(false);
 			dto.setValidationMessage("Please select an employee type");
 		}else if(employee.getGender() == null){

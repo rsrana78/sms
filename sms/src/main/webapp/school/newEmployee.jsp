@@ -23,7 +23,7 @@ $(document).ready(function(){
 	    <p class="legend-text">New Employee Registration Form</p>
 	    <div class="col-lg-5 col-md-5  col-sm-5 col-xs-12">
 			<div class="clearfix">
-	    	<select name="type" id="type">
+	    	<select name="empType" id="type">
 				<option value="">Employee Type</option>
 	            <c:if test="${fn:length(dto.employeeTypeList) gt 0}">
 				<c:forEach items="${dto.employeeTypeList}" var="type">
@@ -32,16 +32,28 @@ $(document).ready(function(){
 				</c:if>
 			</select>
 			</div>
+			<div class="clearfix">
+				<input name="name" id="name" type="text" placeholder="Complete Name" maxlength="100"><br><br>
+		    </div>
+			<div class="clearfix">
+				<input name="fatherName" id="father-name" type="text" placeholder="Father Name" maxlength="100"><br><br>
+			</div>
+			<div class="clearfix">
+				<input name="cnic" id="cnic" type="text" maxlength="13" placeholder="CNIC number" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.keyCode === event.DOM_VK_BACK_SPACE || event.keyCode === event.DOM_VK_DELETE'><br><br>
+			</div>
+			<div class="clearfix">
+				<input name="phone" id="phone" type="text" maxlength="11" placeholder="Phone number" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.keyCode === event.DOM_VK_BACK_SPACE || event.keyCode === event.DOM_VK_DELETE'><br><br>
+			</div>
+			<div class="clearfix">
+				<input type="radio" name="gender" value="Male"> Male<br>
+  				<input type="radio" name="gender" value="Female"> Female<br>
+  			</div>
+			<div class="clearfix">
+				<input type="button" id='submit-contact' value="Submit" onclick="validateEmployee()" title="Add New Employee"/>
+			</div>
 		</div>
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 			<div class="clearfix">
-		    <input name="name" id="name" type="text" placeholder="Complete Name" maxlength="100"><br><br>
-		    <input name="fatherName" id="father-name" type="text" placeholder="Father Name" maxlength="100"><br><br>
-		    <input name="cnic" id="cnic" type="text" maxlength="11" placeholder="13 digit CNIC number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'><br><br>
-		    <input name="phone" id="phone" type="text" maxlength="11" placeholder="Phone number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'><br><br>
-		    <input name="email" id="email" type="text" placeholder="Email address" maxlength="100"><br><br>
-		    <input name="salary" id="salary" type="text" placeholder="Salary" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'><br><br>
-		    <div class="clearfix">
 			    <select name="qualification" id="qualification">
 					<option value="">Qualification</option>
 		            <c:if test="${fn:length(dto.qualificationList) gt 0}">
@@ -51,14 +63,22 @@ $(document).ready(function(){
 					</c:if>
 				</select>
 			</div>
-		    <textarea name="address" id="address" name="address" cols="45" rows="15" placeholder="Enter Your Complete Address Here..." maxlength="300"></textarea><br><br>
+			<div class="clearfix">
+		    	<input name="salary" id="salary" type="text" placeholder="Salary" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 8'><br><br>
+		    </div>
+		    <div class="clearfix">
+		    	<input name="email" id="email" type="text" placeholder="Email address" maxlength="100"><br><br>
+			</div>
+			<div class="clearfix">
+		    	<textarea name="address" id="address" name="address" cols="45" rows="15" placeholder="Enter Your Complete Address Here..." maxlength="300"></textarea><br><br>
 	    	</div>
+	    	<div class="clearfix">
+				<input type="reset" id='submit-reset' value="Reset" title="Reset This Form" style="margin-left: 340px" onclick="reset()"/>
+			</div>
 	    </div>
 	    <div class="error-message">
-	    <p id="message"></p>
+	    	<p id="message"></p>
 	    </div>
-	    <input type="button" id='submit-contact' value="Submit" onclick="validateEmployee()" title="Add New Employee"/>
-	    <input type="reset" id='submit-reset' value="Reset" title="Reset This Form" style="margin-left: 340px" onclick="reset()"/>
 	  </fieldset>
 	</form>
 </div>
