@@ -17,7 +17,8 @@ $(document).ready(function(){
 });
 </script>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<div class="container col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+<div class="container col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	<div id="logIn-form" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<form method="POST" id="login-form" name="login-form">
 	    <p class="legend-text">Login to your school</p>
@@ -26,9 +27,20 @@ $(document).ready(function(){
 		</div>
 		<div class="form-group">
 	    <input type="password"  class="col-lg-4 col-md-4 col-sm-6 col-xs-6" id="login-password" name="password" placeholder="Password" autocomplete="off" maxlength="50" onblur="loginUserPassword();" ><br><br>
-		</div> 
-	    <input type="checkbox" id="remember" name="remember">  Keep me logged in <br><br>
-	    <button  type="button" class="btn btn-success" title="Login to the system" onclick="validateLoginUser()">Login</button>
+		</div>
+		<p class="clearfix">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		    	<input type="checkbox" id="remember" name="remember">Remember me<br><br>
+		    </div>
+		    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		    	<a href="#">Forgot Password?</a>
+		    </div>
+	    </p>
+	    <br />
+	    <br />
+	    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+	    <button  type="button" class="btn btn-success right col-md-8" title="Login to the system" onclick="validateLoginUser()">Login</button>
+	    </div>
 	</form>
 	    
   </div> 	
@@ -42,4 +54,6 @@ $(document).ready(function(){
   All fields are required...!
 </div>
 </div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="loginFoter">
 <%@ include file="/includes/footer.jsp"%>
+</div>

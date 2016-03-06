@@ -1,6 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
-
+#contactUsFoter
+{
+	position: fixed;
+	bottom: 0;
+	padding: 0;
+}
 #error_Field
 {
 	display: none;
@@ -15,12 +20,11 @@
 	color: brown;
     align:center;
 }
-
-@media (min-width:800px) and (max-width:1500px){
-.container
+#contactUsFoter
 {
-	margin-left: 26%;
-}
+	position: fixed;
+	bottom: 0;
+	padding: 0;
 }
 #contact-form
 {

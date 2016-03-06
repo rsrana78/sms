@@ -3,7 +3,7 @@ function errorMessage()
 {
 	$('#message').text('');
 	$("#error_Field").show();
-	$("#error_Field").fadeOut(5000);
+	$("#error_Field").fadeOut(10000);
 }
 function loginUserName()
 {

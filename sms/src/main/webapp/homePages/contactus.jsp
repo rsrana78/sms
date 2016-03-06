@@ -17,6 +17,7 @@ $(document).ready(function(){
 });
 </script> 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
 <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-12">
 	<div id="contact-form" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<form>
@@ -31,7 +32,7 @@ $(document).ready(function(){
 	    <input id="contact-email" type="text" class="col-lg-4 col-md-4 col-sm-6 col-xs-6" onblur="emailOfUser()" placeholder="Email for reply" maxlength="100"><br><br>
 		</div>
 		<div class="form-group">   
-	    <textarea id="contact-message" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" name="message" cols="45" rows="15"  onblur="messageOfUser()" placeholder="Enter Your Message Here..." maxlength="1000"></textarea><br /><br />
+	    <textarea id="contact-message" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" name="message" cols="45" rows="15"  onblur="messageOfUser()" placeholder="Enter Your Message Here...Atleast 50 Characters" maxlength="1000"></textarea><br /><br />
 	    </div>
 	    <div class="error-message col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	    <p id="message"></p>
@@ -56,4 +57,6 @@ $(document).ready(function(){
 </div>
 
 <!-- Contact us -->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="contactUsFoter">
 <%@ include file="/includes/footer.jsp"%>
+</div>

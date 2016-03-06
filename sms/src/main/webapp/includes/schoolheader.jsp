@@ -36,8 +36,8 @@ function getContext(){
 				<a>Employees &#9662;</a>
 				<ul class="dropdown">
 	                <li><a href="${pageContext.request.contextPath}/myschool/newEmployee" title="Create New Employee">New Employee</a></li>
-	                <li><a href="${pageContext.request.contextPath}/myschool/activeEmployees" title="Get List of All Active Employees">Active Employees</a></li>
-	                <li><a href="${pageContext.request.contextPath}/myschool/inactiveEmployees" title="Get List of All Terminated Employees">Inactive Employees</a></li>
+	                <li><a href="${pageContext.request.contextPath}/myschool/activeEmployees" title="Get All Active Employees of Your School">Active Employees</a></li>
+	                <li><a href="${pageContext.request.contextPath}/myschool/inactiveEmployees" title="Get All Terminated Employees of Your School">Inactive Employees</a></li>
             	</ul>
 			</li>
 			<li id="student">

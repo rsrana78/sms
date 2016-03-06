@@ -2,6 +2,7 @@ package com.ayp.sms.service;
 
 import static com.ayp.sms.util.ApplicationMessages.EMPLOYEE_CREATED;
 import static com.ayp.sms.util.ApplicationMessages.EMPLOYEE_EXIST;
+import static com.ayp.sms.util.ApplicationMessages.PRINCIPAL_EXIST;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -80,10 +81,19 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public String createNewEmployee(EmployeeDTO dto) {
+		Campus campus = null;
 		Employee existing = employeeRepository.getEmployeeFromCNIC(dto.getCnic());
 		if(existing != null)
 			return EMPLOYEE_EXIST;
-		Campus campus = campusRepository.findOne(securityService.getCampusId());
+		if(new Integer(dto.getEmpType()) == 1){
+			campus = campusRepository.getOne(securityService.getCampusId());
+			if(campus != null){
+				existing = campus.getPrincipal();
+				if(existing != null && !existing.isServing())
+					return PRINCIPAL_EXIST;
+			}
+		}
+		campus = campusRepository.findOne(securityService.getCampusId());
 		EmployeeType employeeType = employeeTypeRepository.findOne(new Integer(dto.getEmpType()));
 		Qualification qualification = qualificationRepository.findOne(new Integer(dto.getQualification()));
 		Employee employee = DomainMapper.createEmployee(dto);

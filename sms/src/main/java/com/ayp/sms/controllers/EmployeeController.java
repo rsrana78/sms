@@ -70,7 +70,7 @@ public class EmployeeController {
 	
 	@RequestMapping(value = "/myschool/inactiveEmployees", method = RequestMethod.GET)
 	public String getAllTerminatedEmployees(Locale locale, Model model){
-		model.addAttribute("empList", employeeService.getAllEmployees(securityService.getCampusId()));
+		model.addAttribute("empList", employeeService.getAllTerminatedEmployees(securityService.getCampusId()));
 		return "school/terminatedEmployees";
 	}
 	

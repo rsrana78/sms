@@ -1,12 +1,25 @@
 @charset "utf-8";
 /* CSS Document */
-
+#inline
+{
+	display: inline-block !important;
+}
+.right
+{
+	float: right;
+}
 #error_Field
 {
 	display: none;
 	position: fixed;
 	bottom: 90px;
 	left: 2px;
+}
+#loginFoter
+{
+	position: fixed;
+	bottom: 0;
+	padding: 0;
 }
 .legend-text{
 	font-family: courier;
@@ -21,14 +34,9 @@
 	margin-bottom: 20px;
 	margin-top: 20px;
 	padding: 18px;
+	padding-left: 12%;
 }
 /*media queries  for responsiveness*/
-@media (min-width:800px) and (max-width:1500px){
-.container
-{
-	margin-left: 26%;
-}
-}
 @media (min-width:400px) and (max-width:1500px){
 	.center-block {
        display: block;
@@ -37,14 +45,14 @@
 }
 @media (min-width:400px) and (max-width:1200px)
 {
-	#contact-form input
+	#logIn-form form input
 	{
 	   width:60% !important;
 	}
 }
 @media (min-width:0px) and (max-width:400px)
 {
-	#contact-form input
+	#logIn-form form input
 	{
 	   width:90% !important;
 	}

@@ -15,60 +15,67 @@ $(document).ready(function(){
 	$('#team').addClass('current_page_item');
 });
 </script>
-<!-- Change button class end-->
-
-<!-- Schools with us -->
-
-
-<div id="nav">
-<!-- This div is for space between header and footer -->
-</div>
-
-<div class="team-page-heading">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="container">
+  <p class="clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 team-page-heading">
 	<p>"A Team Of Highly Qualified And Professionally Skilled People"</p>
+  </div>
+  </p><br /> <br />
+ <div class="co-lg-6 col-md-6 col-sm-6 col-xs-12 teamMemberBox" >
+   <div class="row">
+    <div class="thumbnail">
+      <img src="${pageContext.request.contextPath}/images/profilepics/a.png" alt="...">
+      <div class="caption">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 NameOfTeamMemeber"><h1>RANA</h1></div>
+        <h3 class="jobCriteria">Developer</h3>
+        <p>As everybody knows by this time, I don't think the major league baseball players of today can be compared to the old-timers. I think the slider is a nickel curve and I detest hearing the modern sissies moan about how it has ruined batting averages.</p>
+      </div>
+    </div>
+   </div>
+  </div>
+  
+   <div class="co-lg-6 col-md-6 col-sm-6 col-xs-12 teamMemberBox" >
+   <div class="row">
+    <div class="thumbnail">
+      <img src="${pageContext.request.contextPath}/images/profilepics/a.png" alt="...">
+      <div class="caption">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 NameOfTeamMemeber"><h1>RANA</h1></div>
+        <h3 class="jobCriteria">Developer</h3>
+        <p>As everybody knows by this time, I don't think the major league baseball players of today can be compared to the old-timers. I think the slider is a nickel curve and I detest hearing the modern sissies moan about how it has ruined batting averages.</p>
+      </div>
+    </div>
+   </div>
+  </div>
+  
+   <div class="co-lg-6 col-md-6 col-sm-6 col-xs-12 teamMemberBox" >
+   <div class="row">
+    <div class="thumbnail">
+      <img src="${pageContext.request.contextPath}/images/profilepics/a.png" alt="...">
+      <div class="caption">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 NameOfTeamMemeber"><h1>RANA</h1></div>
+        <h3 class="jobCriteria">Developer</h3>
+        <p>As everybody knows by this time, I don't think the major league baseball players of today can be compared to the old-timers. I think the slider is a nickel curve and I detest hearing the modern sissies moan about how it has ruined batting averages.</p>
+      </div>
+    </div>
+   </div>
+  </div>
+  
+   <div class="co-lg-6 col-md-6 col-sm-6 col-xs-12 teamMemberBox" >
+   <div class="row">
+    <div class="thumbnail">
+      <img src="${pageContext.request.contextPath}/images/profilepics/a.png" alt="...">
+      <div class="caption">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 NameOfTeamMemeber"><h1>RANA</h1></div>
+        <h3 class="jobCriteria">Developer</h3>
+        <p>As everybody knows by this time, I don't think the major league baseball players of today can be compared to the old-timers. I think the slider is a nickel curve and I detest hearing the modern sissies moan about how it has ruined batting averages.</p>
+      </div>
+    </div>
+   </div>
+  </div>
+  
 </div>
-
-<table id="team-data-table">
-	<tbody>
-		<tr>
-			<td>
-				<table id="team-data-table-inner">
-					<tr><td><img src="${pageContext.request.contextPath}/images/profilepics/a.png" title="Rana Rashid" alt="Rana Rashid"></td></tr>
-					<tr><td><h1>RANA</h1></td></tr>
-					<tr><td><hr><h2>Developer</h2></td></tr>
-					<tr><td><hr><p>As everybody knows by this time, I don't think the major league baseball players of today can be compared to the old-timers. I think the slider is a nickel curve and I detest hearing the modern sissies moan about how it has ruined batting averages.</p></td></tr>
-				</table>
-			</td>
-			<td>
-				<table id="team-data-table-inner">
-					<tr><td><img src="${pageContext.request.contextPath}/images/profilepics/a.png" title="Shahid Mehmood" alt="Shahid Mehmood"></td></tr>
-					<tr><td><h1>SHADY</h1></td></tr>
-					<tr><td><hr><h2>Developer</h2></td></tr>
-					<tr><td><hr><p>As everybody knows by this time, I don't think the major league baseball players of today can be compared to the old-timers. I think the slider is a nickel curve and I detest hearing the modern sissies moan about how it has ruined batting averages.</p></td></tr>
-				</table>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<table id="team-data-table-inner">
-					<tr><td><img src="${pageContext.request.contextPath}/images/profilepics/a.png" title="Fawad Rafiq" alt="Fawad Rafiq"></td></tr>
-					<tr><td><h1>FADI</h1></td></tr>
-					<tr><td><hr><h2>Developer</h2></td></tr>
-					<tr><td><hr><p>As everybody knows by this time, I don't think the major league baseball players of today can be compared to the old-timers. I think the slider is a nickel curve and I detest hearing the modern sissies moan about how it has ruined batting averages.</p></td></tr>
-				</table>
-			</td>
-			<td>
-				<table id="team-data-table-inner">
-					<tr><td><img src="${pageContext.request.contextPath}/images/profilepics/a.png" title="Jamil Shehzad" alt="Jamil Shehzad"></td></tr>
-					<tr><td><h1>JAY</h1></td></tr>
-					<tr><td><hr><h2>FARAG</h2></td></tr>
-					<tr><td><hr><p>As everybody knows by this time, I don't think the major league baseball players of today can be compared to the old-timers. I think the slider is a nickel curve and I detest hearing the modern sissies moan about how it has ruined batting averages.</p></td></tr>
-				</table>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
+</div>
 
 <!-- schools with us -->
 <%@ include file="/includes/footer.jsp"%>

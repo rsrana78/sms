@@ -13,10 +13,10 @@ function validateEmployee(){
         type: 'POST',
         data: $('#empform').serialize(),
         success: function(data) {
-        	showSuccessAlert(data.message);
+        	alert(data.message);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
-		
+        	
         } 
 	});
 }
