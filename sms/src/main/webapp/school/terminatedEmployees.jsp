@@ -21,10 +21,12 @@ $(document).ready(function(){
 		<tr>
 			<td><img src="${pageContext.request.contextPath}${emp.imagePath}" title="${emp.name}" alt="${emp.name}"></td>
 			<td>${emp.name}</td>
-			<td>${emp.fatherName}</td>
+			<td>${emp.type}</td>
 			<td>${emp.cnic}</td>
 			<td>${emp.phone}</td>
-			<td>${emp.empType}</td>
+			<td>${emp.date}</td>
+			<td>${emp.terminationDate}</td>
+			<td>${emp.reason}</td>
 		</tr>
 	</c:forEach>
 	</c:if>

@@ -1,10 +1,14 @@
 package com.ayp.sms.util;
 
-import java.math.BigDecimal;
 import java.util.Calendar;
 
-import com.ayp.sms.domain.*;
-import com.ayp.sms.dto.*;
+import com.ayp.sms.domain.Campus;
+import com.ayp.sms.domain.Employee;
+import com.ayp.sms.domain.UserInfo;
+import com.ayp.sms.dto.EmployeeDTO;
+import com.ayp.sms.dto.EmployeeDetailDTO;
+import com.ayp.sms.dto.EmployeeListingDTO;
+import com.ayp.sms.dto.SchoolDTO;
 import com.ayp.sms.enums.GenderEnum;
 
 /**
@@ -22,8 +26,8 @@ public class DomainMapper {
 		return dto;
 	}
 	
-	public static EmployeeDTO createEmployeeDTO(Employee employee){
-		EmployeeDTO dto = new EmployeeDTO();
+	public static EmployeeDetailDTO createEmployeeDetailDTO(Employee employee){
+		EmployeeDetailDTO dto = new EmployeeDetailDTO();
 		dto.setId(employee.getEmployeeId());
 		dto.setAddress(employee.getEmployeeAddress());
 		dto.setCnic(employee.getCnic());
@@ -55,7 +59,7 @@ public class DomainMapper {
 			employee.setImagePath(dto.getImagePath());
 		else
 			employee.setImagePath(CompleteURLUtil.getNoImageURL());
-		employee.setSalary(new BigDecimal(dto.getSalary()));
+		employee.setSalary(dto.getSalary());
 		employee.setServing(true);
 		if(dto.getJoiningDate() != null)
 			employee.setJoiningDate(DateUtil.convertStringToCalendar(dto.getJoiningDate()));
@@ -63,6 +67,39 @@ public class DomainMapper {
 			employee.setJoiningDate(Calendar.getInstance());
 		employee.setEntryDate(Calendar.getInstance());
 		return employee;
+	}
+	
+	public static EmployeeDTO createEmployeeDTO(Employee employee){
+		EmployeeDTO dto = new EmployeeDTO();
+		dto.setId(employee.getEmployeeId());
+		dto.setAddress(employee.getEmployeeAddress());
+		dto.setCnic(employee.getCnic());
+		dto.setQualification(employee.getQualification().getId());
+		dto.setEmpType(employee.getEmployeeType().getId());
+		dto.setFatherName(employee.getFatherName());
+		if(employee.getUser() != null)
+			dto.setEmail(employee.getUser().getEmail());
+		dto.setImagePath(employee.getImagePath());
+		dto.setName(employee.getEmployeeName());
+		dto.setPhone(employee.getContactNumber());
+		dto.setSalary(employee.getSalary());
+		dto.setJoiningDate(DateUtil.convertCalendarToString(employee.getJoiningDate()));
+		return dto;
+	}
+	
+	public static EmployeeListingDTO createEmployeeListingDTO(Employee employee){
+		EmployeeListingDTO dto = new EmployeeListingDTO();
+		dto.setId(employee.getEmployeeId());
+		dto.setName(employee.getEmployeeName());
+		dto.setType(employee.getEmployeeType().getEmployeeTypeName());
+		dto.setReason(employee.getReason());
+		dto.setImagePath(CompleteURLUtil.completeURL(employee.getImagePath()));
+		dto.setDate(DateUtil.convertCalendarToString(employee.getEntryDate()));
+		dto.setCnic(employee.getCnic());
+		dto.setPhone(employee.getContactNumber());
+		if(employee.getTerminationDate() != null)
+			dto.setTerminationDate(DateUtil.convertCalendarToString(employee.getTerminationDate()));
+		return dto;
 	}
 	
 	public static UserInfo createUserInfo(EmployeeDTO dto){

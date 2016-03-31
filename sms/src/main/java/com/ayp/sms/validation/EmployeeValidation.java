@@ -1,5 +1,7 @@
 package com.ayp.sms.validation;
 
+import java.math.BigDecimal;
+
 import com.ayp.sms.dto.EmployeeDTO;
 import com.ayp.sms.dto.ValidationStatusDTO;
 
@@ -38,7 +40,7 @@ public class EmployeeValidation {
 		}else if(employee.getQualification() == null){
 			dto.setValidated(false);
 			dto.setValidationMessage("Please select qualification for this employee");
-		}else if(employee.getSalary() == null || employee.getSalary().trim().isEmpty()){
+		}else if(employee.getSalary() == null || employee.getSalary().equals(BigDecimal.ZERO)){
 			dto.setValidated(false);
 			dto.setValidationMessage("Please specify salary for this employee");
 		}else if(employee.getEmpType() == null){
@@ -47,6 +49,12 @@ public class EmployeeValidation {
 		}else if(employee.getGender() == null){
 			dto.setValidated(false);
 			dto.setValidationMessage("Please specify gender for this employee");
+		}else if(employee.getEmpType() == null){
+			dto.setValidated(false);
+			dto.setValidationMessage("Please specify type of this employee");
+		}else if(employee.getQualification() == null){
+			dto.setValidated(false);
+			dto.setValidationMessage("Please specify qualification for this employee");
 		}
 		return dto;
 	}

@@ -1,11 +1,6 @@
 package com.ayp.sms.dto;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
-
-import com.ayp.sms.domain.EmployeeType;
-import com.ayp.sms.domain.Qualification;
 
 /**
  * 
@@ -13,7 +8,7 @@ import com.ayp.sms.domain.Qualification;
  *
  */
 
-public class EmployeeDTO implements Serializable{
+public class EmployeeDetailDTO implements Serializable{
 
 	/**
 	 * 
@@ -26,16 +21,23 @@ public class EmployeeDTO implements Serializable{
 	private String cnic;
 	private String phone;
 	private String email;
-	private BigDecimal salary;
-	private Integer qualification;
+	private String salary;
+	private String qualification;
 	private String address;
-	private Integer empType;
+	private String empType;
 	private String imagePath;
 	private String gender;
 	private String joiningDate;
-	private List<EmployeeType> employeeTypeList;
-	private List<Qualification> qualificationList;
+	private String terminationDate;
+	private String reason;
+	private String terminatedBy;
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -66,11 +68,17 @@ public class EmployeeDTO implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public BigDecimal getSalary() {
+	public String getSalary() {
 		return salary;
 	}
-	public void setSalary(BigDecimal salary) {
+	public void setSalary(String salary) {
 		this.salary = salary;
+	}
+	public String getQualification() {
+		return qualification;
+	}
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
 	}
 	public String getAddress() {
 		return address;
@@ -78,28 +86,10 @@ public class EmployeeDTO implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public List<EmployeeType> getEmployeeTypeList() {
-		return employeeTypeList;
-	}
-	public void setEmployeeTypeList(List<EmployeeType> employeeTypeList) {
-		this.employeeTypeList = employeeTypeList;
-	}
-	public List<Qualification> getQualificationList() {
-		return qualificationList;
-	}
-	public void setQualificationList(List<Qualification> qualificationList) {
-		this.qualificationList = qualificationList;
-	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public Integer getEmpType() {
+	public String getEmpType() {
 		return empType;
 	}
-	public void setEmpType(Integer empType) {
+	public void setEmpType(String empType) {
 		this.empType = empType;
 	}
 	public String getImagePath() {
@@ -108,23 +98,35 @@ public class EmployeeDTO implements Serializable{
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String getJoiningDate() {
 		return joiningDate;
 	}
 	public void setJoiningDate(String joiningDate) {
 		this.joiningDate = joiningDate;
 	}
-	public Integer getQualification() {
-		return qualification;
+	public String getTerminationDate() {
+		return terminationDate;
 	}
-	public void setQualification(Integer qualification) {
-		this.qualification = qualification;
+	public void setTerminationDate(String terminationDate) {
+		this.terminationDate = terminationDate;
 	}
-	public String getGender() {
-		return gender;
+	public String getReason() {
+		return reason;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+	public String getTerminatedBy() {
+		return terminatedBy;
+	}
+	public void setTerminatedBy(String terminatedBy) {
+		this.terminatedBy = terminatedBy;
 	}
 
 }

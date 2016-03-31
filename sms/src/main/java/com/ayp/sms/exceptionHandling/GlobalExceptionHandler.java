@@ -308,4 +308,16 @@ public class GlobalExceptionHandler {
 		}
 		return ResponseUtil.createResponseObject(FAILURE, NUMBER_FORMAT_EXCEPTION+" "+exception.getLocalizedMessage(),null);
 	}
+	
+	@ExceptionHandler(RecordNotFoundException.class)
+	@ResponseBody
+	public ResponseObject recordNotFoundExceptionHandler(RecordNotFoundException exception, HttpServletRequest request, HttpServletResponse response) throws IOException{
+		LOGGER.error("Eception",exception);
+		if(request.getHeader("X-Requested-With") == null){
+			request.getSession().setAttribute(ERROR_MESSAGE, exception.getExceptionMessage());
+			response.sendRedirect(SMS_ERROR_PAGE_REDIRECT_PATH);
+			return null;
+		}
+		return ResponseUtil.createResponseObject(FAILURE, exception.getExceptionMessage(), null);
+	}
 }

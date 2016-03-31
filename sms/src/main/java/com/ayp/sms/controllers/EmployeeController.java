@@ -10,9 +10,11 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,6 +47,8 @@ public class EmployeeController {
 	
 	@RequestMapping(value = "/myschool/newEmployee", method = RequestMethod.GET)
 	public String newEmployee(Locale locale, Model model){
+		if(SecurityUtils.getSubject().isPermitted("employee:new"))
+			return null;
 		EmployeeDTO dto = new EmployeeDTO();
 		dto.setEmployeeTypeList(employeeService.getEmployeeTypeList());
 		dto.setQualificationList(employeeService.getQualificationList());
@@ -72,6 +76,31 @@ public class EmployeeController {
 	public String getAllTerminatedEmployees(Locale locale, Model model){
 		model.addAttribute("empList", employeeService.getAllTerminatedEmployees(securityService.getCampusId()));
 		return "school/terminatedEmployees";
+	}
+	
+	@RequestMapping(value = "/myschool/employeeDetail/{id}", method = RequestMethod.GET)
+	public String getEmployeeDetail(Locale locale, Model model, @PathVariable Integer id){
+		model.addAttribute("employee", employeeService.getEmployeeDetail(id));
+		return "school/employeeDetail";
+	}
+	
+	@RequestMapping(value = "/myschool/editEmployeeDetail/{id}", method = RequestMethod.GET)
+	public String editEmployee(Locale locale, Model model, @PathVariable Integer id){
+		EmployeeDTO dto = employeeService.editAnEmployee(id);
+		dto.setEmployeeTypeList(employeeService.getEmployeeTypeList());
+		dto.setQualificationList(employeeService.getQualificationList());
+		model.addAttribute("employee", dto);
+		return "school/editEmployee";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/myschool/updateEmployee", method = RequestMethod.POST)
+	public ResponseObject updateEmployee(EmployeeDTO dto, HttpServletRequest request, HttpServletResponse response){
+		ValidationStatusDTO validation = EmployeeValidation.validateNewEmployee(dto);
+		if(!validation.isValidated())
+			return ResponseUtil.createResponseObject(FAILURE, validation.getValidationMessage(), null);
+		String message = employeeService.updateEmployee(dto);
+		return ResponseUtil.createResponseObject(SUCCESS, message, null);
 	}
 	
 	@ResponseBody

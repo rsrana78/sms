@@ -15,19 +15,28 @@ $(document).ready(function(){
 <!-- This div is for space between header and footer -->
 </div>
 <!-- Employee Listing page -->
-<table id="emp-data-table">
-	<c:if test="${fn:length(empList) gt 0}">
-	<c:forEach items="${empList}" var="emp">
-		<tr>
-			<td><img src="${pageContext.request.contextPath}${emp.imagePath}" title="${emp.name}" alt="${emp.name}"></td>
-			<td>${emp.name}</td>
-			<td>${emp.fatherName}</td>
-			<td>${emp.cnic}</td>
-			<td>${emp.phone}</td>
-			<td>${emp.empType}</td>
-		</tr>
-	</c:forEach>
-	</c:if>
-</table>
-
+<div class="row">
+	<div class="col-md-3 careers_left">
+		<div class="clearfix">
+				<input type="radio" name="gender" value="Male">Teacher<br>
+  				<input type="radio" name="gender" value="Female">Guard<br>
+  		</div>
+	</div>
+	<div class="col-md-9 careers_right">
+		<table id="emp-data-table">
+			<c:if test="${fn:length(empList) gt 0}">
+			<c:forEach items="${empList}" var="emp">
+				<tr>
+					<td><img src="${pageContext.request.contextPath}${emp.imagePath}" title="${emp.name}" alt="${emp.name}"></td>
+					<td>${emp.name}</td>
+					<td>${emp.type}</td>
+					<td>${emp.cnic}</td>
+					<td>${emp.phone}</td>
+					<td>${emp.date}</td>
+				</tr>
+			</c:forEach>
+			</c:if>
+		</table>
+	</div>
+</div>
 <%@ include file="/includes/schoolfooter.jsp"%>

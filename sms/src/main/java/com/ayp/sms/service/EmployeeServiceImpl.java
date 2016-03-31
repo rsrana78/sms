@@ -20,7 +20,10 @@ import com.ayp.sms.domain.EmployeeType;
 import com.ayp.sms.domain.Qualification;
 import com.ayp.sms.domain.UserInfo;
 import com.ayp.sms.dto.EmployeeDTO;
+import com.ayp.sms.dto.EmployeeDetailDTO;
+import com.ayp.sms.dto.EmployeeListingDTO;
 import com.ayp.sms.dto.ReasonDTO;
+import com.ayp.sms.exceptionHandling.RecordNotFoundException;
 import com.ayp.sms.repository.CampusRepository;
 import com.ayp.sms.repository.EmployeeRepository;
 import com.ayp.sms.repository.EmployeeTypeRepository;
@@ -68,13 +71,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-	public List<EmployeeDTO> getAllEmployees(Integer campusId) {
+	public List<EmployeeListingDTO> getAllEmployees(Integer campusId) {
 		if(campusId == null)
 			return null;
-		List<EmployeeDTO> employeeDTOList = new ArrayList<EmployeeDTO>();
+		List<EmployeeListingDTO> employeeDTOList = new ArrayList<EmployeeListingDTO>();
 		List<Employee> employeeList = employeeRepository.getAllEmployees(campusId);
 		for(Employee employee:employeeList){
-			employeeDTOList.add(DomainMapper.createEmployeeDTO(employee));
+			employeeDTOList.add(DomainMapper.createEmployeeListingDTO(employee));
 		}
 		return employeeDTOList;
 	}
@@ -111,13 +114,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 	
 	@Override
-	public List<EmployeeDTO> getAllTerminatedEmployees(Integer campusId) {
+	public List<EmployeeListingDTO> getAllTerminatedEmployees(Integer campusId) {
 		if(campusId == null)
 			return null;
-		List<EmployeeDTO> employeeDTOList = new ArrayList<EmployeeDTO>();
+		List<EmployeeListingDTO> employeeDTOList = new ArrayList<EmployeeListingDTO>();
 		List<Employee> employeeList = employeeRepository.getAllTerminatedEmployees(campusId);
 		for(Employee employee:employeeList){
-			employeeDTOList.add(DomainMapper.createEmployeeDTO(employee));
+			employeeDTOList.add(DomainMapper.createEmployeeListingDTO(employee));
 		}
 		return employeeDTOList;
 	}
@@ -137,5 +140,45 @@ public class EmployeeServiceImpl implements EmployeeService{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public EmployeeDetailDTO getEmployeeDetail(Integer id) {
+		Employee employee = employeeRepository.findOne(id);
+		if(employee == null)
+			throw new RecordNotFoundException("No Result found.");
+		return DomainMapper.createEmployeeDetailDTO(employee);
+	}
+
+	@Override
+	public EmployeeDTO editAnEmployee(Integer id) {
+		Employee employee = employeeRepository.findOne(id);
+		if(employee == null)
+			throw new RecordNotFoundException("No Result found.");
+		return DomainMapper.createEmployeeDTO(employee);
+	}
+
+	@Override
+	public String updateEmployee(EmployeeDTO dto) {
+		Campus campus = null;
+		Employee existing = null;
+		if(new Integer(dto.getEmpType()) == 1){
+			campus = campusRepository.getOne(securityService.getCampusId());
+			if(campus != null){
+				existing = campus.getPrincipal();
+				if(existing != null && !existing.isServing())
+					return PRINCIPAL_EXIST;
+			}
+		}
+		campus = campusRepository.findOne(securityService.getCampusId());
+		EmployeeType employeeType = employeeTypeRepository.findOne(new Integer(dto.getEmpType()));
+		Qualification qualification = qualificationRepository.findOne(new Integer(dto.getQualification()));
+		Employee employee = DomainMapper.createEmployee(dto);
+		employee.setEmployeeId(dto.getId());
+		employee.setCampuses(campus);
+		employee.setEmployeeType(employeeType);
+		employee.setQualification(qualification);
+		employee = employeeRepository.save(employee);
+		return EMPLOYEE_CREATED;
 	}
 }

@@ -15,15 +15,17 @@ $(document).ready(function(){
 <div id="nav">
 <!-- This div is for space between header and footer -->
 </div>
-<!-- new employee regstration screen -->
+<!-- new employee registration screen -->
 
-<div id="employee-form">
+<div class="container">
 	<form method="POST" id="empform" name="empform">
 	  <fieldset>
-	    <p class="legend-text">New Employee Registration Form</p>
-	    <div class="col-lg-5 col-md-5  col-sm-5 col-xs-12">
+	  	<div class="col-lg-12 col-md-12  col-sm-12 col-xs-12 text-center">  
+		  	<h2>New Employee Registration Form</h2>
+		</div>  
+	    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
 			<div class="clearfix">
-	    	<select name="empType" id="type">
+	    	<select name="empType" id="type" class="selectpicker">
 				<option value="">Employee Type</option>
 	            <c:if test="${fn:length(dto.employeeTypeList) gt 0}">
 				<c:forEach items="${dto.employeeTypeList}" var="type">
@@ -48,11 +50,8 @@ $(document).ready(function(){
 				<input type="radio" name="gender" value="Male"> Male<br>
   				<input type="radio" name="gender" value="Female"> Female<br>
   			</div>
-			<div class="clearfix">
-				<input type="button" id='submit-contact' value="Submit" onclick="validateEmployee()" title="Add New Employee"/>
-			</div>
 		</div>
-		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="clearfix">
 			    <select name="qualification" id="qualification">
 					<option value="">Qualification</option>
@@ -70,12 +69,22 @@ $(document).ready(function(){
 		    	<input name="email" id="email" type="text" placeholder="Email address" maxlength="100"><br><br>
 			</div>
 			<div class="clearfix">
-		    	<textarea name="address" id="address" name="address" cols="45" rows="15" placeholder="Enter Your Complete Address Here..." maxlength="300"></textarea><br><br>
+		    	<textarea name="address" id="address" name="address" cols="45" rows="15" placeholder="Complete Address..." maxlength="300"></textarea><br><br>
 	    	</div>
-	    	<div class="clearfix">
+	    	<div class="ajax-file-upload" style="position: relative; overflow: hidden; cursor: default;">Profile Picture
+	    		<form method="POST" action="/SMS/saveFiles" enctype="multipart/form-data" style="margin: 0px; padding: 0px;">
+	    			<input type="file" id="ajax-upload-id-1459313674345" name="file[]" accept="*" style="position: absolute; cursor: pointer; top: 0px; width: 100%; height: 100%; left: 0px; opacity: 0;"/>
+	    		</form>
+	    	</div>
+	    </div>
+	    <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
+		    <div class="col-md-6">
+				<input type="button" id='submit-contact' value="Submit" onclick="validateEmployee()" title="Add New Employee"/>
+			</div>
+			<div class="col-md-6">
 				<input type="reset" id='submit-reset' value="Reset" title="Reset This Form" style="margin-left: 340px" onclick="reset()"/>
 			</div>
-	    </div>
+		</div>
 	    <div class="error-message">
 	    	<p id="message"></p>
 	    </div>
