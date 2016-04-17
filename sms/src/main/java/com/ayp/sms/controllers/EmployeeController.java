@@ -10,7 +10,6 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,8 +46,6 @@ public class EmployeeController {
 	
 	@RequestMapping(value = "/myschool/newEmployee", method = RequestMethod.GET)
 	public String newEmployee(Locale locale, Model model){
-		if(SecurityUtils.getSubject().isPermitted("employee:new"))
-			return null;
 		EmployeeDTO dto = new EmployeeDTO();
 		dto.setEmployeeTypeList(employeeService.getEmployeeTypeList());
 		dto.setQualificationList(employeeService.getQualificationList());
@@ -68,13 +65,13 @@ public class EmployeeController {
 	
 	@RequestMapping(value = "/myschool/activeEmployees", method = RequestMethod.GET)
 	public String getAllEmployees(Locale locale, Model model){
-		model.addAttribute("empList", employeeService.getAllEmployees(securityService.getCampusId()));
+		model.addAttribute("empList", employeeService.getAllEmployees(securityService.getSchoolId()));
 		return "school/activeEmployees";
 	}
 	
 	@RequestMapping(value = "/myschool/inactiveEmployees", method = RequestMethod.GET)
 	public String getAllTerminatedEmployees(Locale locale, Model model){
-		model.addAttribute("empList", employeeService.getAllTerminatedEmployees(securityService.getCampusId()));
+		model.addAttribute("empList", employeeService.getAllTerminatedEmployees(securityService.getSchoolId()));
 		return "school/terminatedEmployees";
 	}
 	

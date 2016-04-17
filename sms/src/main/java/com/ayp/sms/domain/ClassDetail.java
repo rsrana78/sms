@@ -14,7 +14,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="classDetail")
+@Table(name="schoolClassDetail")
 public class ClassDetail implements Serializable {
 	/**
 	 * 
@@ -38,6 +38,10 @@ public class ClassDetail implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="student", nullable=false)
 	private Student student;
+	
+	@Basic
+	@Column(name = "active")
+	private boolean active;
 
 	public Integer getId() {
 		return id;
@@ -69,6 +73,14 @@ public class ClassDetail implements Serializable {
 
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 }

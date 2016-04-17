@@ -41,7 +41,7 @@ public class DateSheetDetail implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="subject", nullable=false)
-	private Subject subjectBean;
+	private ClassesSubjects subjectBean;
 
 	public Integer getId() {
 		return id;
@@ -67,11 +67,11 @@ public class DateSheetDetail implements Serializable {
 		this.dateSheet = dateSheet;
 	}
 
-	public Subject getSubjectBean() {
+	public ClassesSubjects getSubjectBean() {
 		return subjectBean;
 	}
 
-	public void setSubjectBean(Subject subjectBean) {
+	public void setSubjectBean(ClassesSubjects subjectBean) {
 		this.subjectBean = subjectBean;
 	}
 

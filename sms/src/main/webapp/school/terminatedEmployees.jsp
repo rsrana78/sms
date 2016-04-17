@@ -15,21 +15,47 @@ $(document).ready(function(){
 <!-- This div is for space between header and footer -->
 </div>
 <!-- Employee Listing page -->
-<table id="emp-data-table">
-	<c:if test="${fn:length(empList) gt 0}">
-	<c:forEach items="${empList}" var="emp">
-		<tr>
-			<td><img src="${pageContext.request.contextPath}${emp.imagePath}" title="${emp.name}" alt="${emp.name}"></td>
-			<td>${emp.name}</td>
-			<td>${emp.type}</td>
-			<td>${emp.cnic}</td>
-			<td>${emp.phone}</td>
-			<td>${emp.date}</td>
-			<td>${emp.terminationDate}</td>
-			<td>${emp.reason}</td>
-		</tr>
-	</c:forEach>
-	</c:if>
-</table>
+<div id="wrapper">
+<div class="container top_margin">
+<div class="row">
+	<div class="col-md-2 careers_left">
+	<div class="pl_product_side_nav" id="accordion2">
+	       <div class="accordion-group">
+		  <div class="accordion-heading">
+		    <p>Filters</p>
+		  </div>
+		  <div class="accordion-body">
+		    <div class="pl_product_side_nav_inner01">
+		      	<input type="radio" name="gender" value="Male"> Male<br>
+  				<input type="radio" name="gender" value="Female"> Female<br>
+		    </div>
+		  </div>
+		</div>
+	</div> <!--pl_product_side_nav-->               
+	</div>
+
+	<div class="col-md-10 careers_right">
+		<div class="col-md-12 col-xs-6">
+			<table id="emp-data-table">
+				<c:if test="${fn:length(empList) gt 0}">
+					<c:forEach items="${empList}" var="emp">
+						<tr>
+							<td><img src="${pageContext.request.contextPath}${emp.imagePath}" title="${emp.name}" alt="${emp.name}"></td>
+							<td>${emp.name}</td>
+							<td>${emp.type}</td>
+							<td>${emp.cnic}</td>
+							<td>${emp.phone}</td>
+							<td>${emp.date}</td>
+							<td>${emp.terminationDate}</td>
+							<td>${emp.reason}</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+</div>
 
 <%@ include file="/includes/schoolfooter.jsp"%>

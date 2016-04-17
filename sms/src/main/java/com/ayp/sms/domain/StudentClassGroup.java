@@ -36,10 +36,10 @@ public class StudentClassGroup implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="class", nullable=false)
-	private SchoolClass schoolClass;
+	private SchoolClasses schoolClass;
 
 	@Basic
-	@OneToMany(mappedBy="id")
+	@OneToMany(mappedBy="studentClassGroup")
 	private List<StudentClassGroupDetail> studentClassGroupDetails;
 
 	@Basic
@@ -62,11 +62,11 @@ public class StudentClassGroup implements Serializable {
 		this.groupName = groupName;
 	}
 
-	public SchoolClass getSchoolClass() {
+	public SchoolClasses getSchoolClass() {
 		return schoolClass;
 	}
 
-	public void setSchoolClass(SchoolClass schoolClass) {
+	public void setSchoolClass(SchoolClasses schoolClass) {
 		this.schoolClass = schoolClass;
 	}
 

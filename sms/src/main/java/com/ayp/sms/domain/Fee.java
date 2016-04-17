@@ -36,7 +36,7 @@ public class Fee implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="class", nullable=false)
-	private SchoolClass schoolClass;
+	private SchoolClasses schoolClass;
 
 	public Integer getId() {
 		return id;
@@ -54,11 +54,11 @@ public class Fee implements Serializable {
 		this.fee = fee;
 	}
 
-	public SchoolClass getSchoolClass() {
+	public SchoolClasses getSchoolClass() {
 		return schoolClass;
 	}
 
-	public void setSchoolClass(SchoolClass schoolClass) {
+	public void setSchoolClass(SchoolClasses schoolClass) {
 		this.schoolClass = schoolClass;
 	}
 

@@ -46,7 +46,7 @@ public class SecurityServiceImpl implements SecurityService{
 	}
 
 	@Override
-	public String getCampusName() {
+	public String getSchoolName() {
 		return sessionData.getCampusName();
 	}
 
@@ -56,7 +56,17 @@ public class SecurityServiceImpl implements SecurityService{
 	}
 
 	@Override
-	public Integer getCampusId() {
+	public Integer getSchoolId() {
 		return sessionData.getCampusId();
+	}
+
+	@Override
+	public Integer getCurrentUserId() {
+		return sessionData.getUserId();
+	}
+
+	@Override
+	public Integer getClassId() {
+		return sessionData.getClassId();
 	}
 }

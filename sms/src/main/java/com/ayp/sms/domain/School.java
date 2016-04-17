@@ -63,6 +63,10 @@ public class School implements Serializable {
 
 	@OneToMany(mappedBy="school")
 	private List<Campus> campus;
+	
+	@Basic
+	@Column(name = "initials")
+	private String schoolInitials;
 
 	public Integer getId() {
 		return id;
@@ -134,6 +138,14 @@ public class School implements Serializable {
 
 	public void setCampus(List<Campus> campus) {
 		this.campus = campus;
+	}
+
+	public String getSchoolInitials() {
+		return schoolInitials;
+	}
+
+	public void setSchoolInitials(String schoolInitials) {
+		this.schoolInitials = schoolInitials;
 	}
 
 }

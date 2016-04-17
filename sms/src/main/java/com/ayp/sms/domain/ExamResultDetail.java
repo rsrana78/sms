@@ -40,7 +40,7 @@ public class ExamResultDetail implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="subject", nullable=false)
-	private Subject subject;
+	private ClassesSubjects subject;
 
 	@ManyToOne
 	@JoinColumn(name="subjectTeacher", nullable=false)
@@ -74,11 +74,11 @@ public class ExamResultDetail implements Serializable {
 		this.examResult = examResult;
 	}
 
-	public Subject getSubject() {
+	public ClassesSubjects getSubject() {
 		return subject;
 	}
 
-	public void setSubject(Subject subject) {
+	public void setSubject(ClassesSubjects subject) {
 		this.subject = subject;
 	}
 

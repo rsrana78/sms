@@ -63,7 +63,7 @@ public class Sections implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="class", nullable=false)
-	private SchoolClass schoolClass;
+	private SchoolClasses schoolClass;
 
 	@OneToMany(mappedBy="section")
 	private List<Test> tests;
@@ -143,11 +143,11 @@ public class Sections implements Serializable {
 		this.examResults = examResults;
 	}
 
-	public SchoolClass getSchoolClass() {
+	public SchoolClasses getSchoolClass() {
 		return schoolClass;
 	}
 
-	public void setSchoolClass(SchoolClass schoolClass) {
+	public void setSchoolClass(SchoolClasses schoolClass) {
 		this.schoolClass = schoolClass;
 	}
 

@@ -17,8 +17,8 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="subjects")
-public class Subject implements Serializable {
+@Table(name="classesSubjects")
+public class ClassesSubjects implements Serializable {
 	/**
 	 * 
 	 */
@@ -35,16 +35,12 @@ public class Subject implements Serializable {
 	private boolean active;
 
 	@Basic
-	@Column(nullable=false, name = "compulsory")
-	private boolean compulsory;
-
-	@Basic
 	@Column(nullable=false, name="elective")
 	private boolean elective;
 
-	@Basic
-	@Column(nullable=false, name="name")
-	private String name;
+	@ManyToOne
+	@JoinColumn(name="name", nullable=false)
+	private MainSubjects name;
 
 	@Basic
 	@OneToMany(mappedBy="id")
@@ -60,7 +56,7 @@ public class Subject implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="class", nullable=false)
-	private SchoolClass schoolClass;
+	private SchoolClasses schoolClass;
 
 	@OneToMany(mappedBy="id")
 	private List<Test> tests;
@@ -84,14 +80,6 @@ public class Subject implements Serializable {
 		this.active = active;
 	}
 
-	public boolean isCompulsory() {
-		return compulsory;
-	}
-
-	public void setCompulsory(boolean compulsory) {
-		this.compulsory = compulsory;
-	}
-
 	public boolean isElective() {
 		return elective;
 	}
@@ -100,11 +88,11 @@ public class Subject implements Serializable {
 		this.elective = elective;
 	}
 
-	public String getName() {
+	public MainSubjects getName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(MainSubjects name) {
 		this.name = name;
 	}
 
@@ -133,11 +121,11 @@ public class Subject implements Serializable {
 		this.studentClassGroupDetails = studentClassGroupDetails;
 	}
 
-	public SchoolClass getSchoolClass() {
+	public SchoolClasses getSchoolClass() {
 		return schoolClass;
 	}
 
-	public void setSchoolClass(SchoolClass schoolClass) {
+	public void setSchoolClass(SchoolClasses schoolClass) {
 		this.schoolClass = schoolClass;
 	}
 

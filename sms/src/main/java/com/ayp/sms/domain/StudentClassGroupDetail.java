@@ -34,7 +34,7 @@ public class StudentClassGroupDetail implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="subject", nullable=false)
-	private Subject subject;
+	private ClassesSubjects subject;
 
 	public Integer getId() {
 		return id;
@@ -52,11 +52,11 @@ public class StudentClassGroupDetail implements Serializable {
 		this.studentClassGroup = studentClassGroup;
 	}
 
-	public Subject getSubject() {
+	public ClassesSubjects getSubject() {
 		return subject;
 	}
 
-	public void setSubject(Subject subject) {
+	public void setSubject(ClassesSubjects subject) {
 		this.subject = subject;
 	}
 	

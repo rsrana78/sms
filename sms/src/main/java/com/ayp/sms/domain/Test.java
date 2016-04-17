@@ -53,7 +53,7 @@ public class Test implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="subject", nullable=false)
-	private Subject subject;
+	private ClassesSubjects subject;
 
 	@ManyToOne
 	@JoinColumn(name="teacher", nullable=false)
@@ -107,11 +107,11 @@ public class Test implements Serializable {
 		this.section = section;
 	}
 
-	public Subject getSubject() {
+	public ClassesSubjects getSubject() {
 		return subject;
 	}
 
-	public void setSubject(Subject subject) {
+	public void setSubject(ClassesSubjects subject) {
 		this.subject = subject;
 	}
 

@@ -30,24 +30,24 @@ public class AuthenticationInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object obj) throws Exception {
 		SessionData sessionData = securityService.getSessionData();
 		if(sessionData == null){
-			/**
-	         * Set Session Data
-	         */
-	        sessionData = new SessionData();
-	        String ip = request.getRemoteAddr();
-			if (ip.contains("127.0.0.1") || ip.contains("0:0:0:0:0:0:0:1")) {
-				String xforward = request.getHeader("X-Forwarded-For");
-				if (xforward != null) {
-					ip = xforward;
-					if (ip.contains(",")) {
-						ip = ip.substring(ip.indexOf(','));
-					}
-
-				}
-			}
-			sessionData.setUserIp(ip);
-			securityService.setSessionData(sessionData);
+			sessionData = new SessionData();
 		}
+		/**
+         * Set Session Data
+         */
+        String ip = request.getRemoteAddr();
+		if (ip.contains("127.0.0.1") || ip.contains("0:0:0:0:0:0:0:1")) {
+			String xforward = request.getHeader("X-Forwarded-For");
+			if (xforward != null) {
+				ip = xforward;
+				if (ip.contains(",")) {
+					ip = ip.substring(ip.indexOf(','));
+				}
+
+			}
+		}
+		sessionData.setUserIp(ip);
+		securityService.setSessionData(sessionData);
 		return true;
 	}
 

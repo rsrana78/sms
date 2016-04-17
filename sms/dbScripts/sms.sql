@@ -479,3 +479,45 @@ ADD COLUMN `monogram` VARCHAR(250) NOT NULL;
 
 ALTER TABLE `employee` 
 ADD COLUMN `gender` INT(11) NOT NULL COMMENT '' AFTER `salary`;
+
+ALTER TABLE school ADD (initials VARCHAR(5) NOT NULL);
+ALTER TABLE campus ADD (initials INT(4) NOT NULL);
+ALTER TABLE students ADD (student_cnic INT(13));
+ALTER TABLE students ADD (father_cnic INT(13));
+
+RENAME TABLE `classDetail` TO `schoolClassDetail`;
+RENAME TABLE `class` TO `mainClasses`;
+ALTER TABLE `subjects` RENAME TO  `classesSubjects` ;
+
+ALTER TABLE `classesSubjects` 
+DROP COLUMN `compulsory`,
+CHANGE COLUMN `name` `name` INT(11) NOT NULL COMMENT '' ;
+
+CREATE TABLE `subjects` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `name` VARCHAR(45) NOT NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '');
+  
+ALTER TABLE `classesSubjects` 
+ADD CONSTRAINT `fk2`
+  FOREIGN KEY (`name`)
+  REFERENCES `sms_test_db`.`subjects` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+ALTER TABLE students ADD (gender INT);
+
+ALTER TABLE `students` 
+ADD COLUMN `entryDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '' AFTER `gender`;
+
+ALTER TABLE students MODIFY COLUMN reason VARCHAR(300);
+ALTER TABLE students MODIFY COLUMN student_cnic VARCHAR(45);
+ALTER TABLE students MODIFY COLUMN father_cnic VARCHAR(45);
+ALTER TABLE schoolClassDetail ADD (active TINYINT(1) DEFAULT '1' NOT NULL);
+ALTER TABLE usersLogin DROP FOREIGN KEY fk_usersLogin_1;
+ALTER TABLE usersLogin DROP FOREIGN KEY fk_usersLogin_2;
+ALTER TABLE usersLogin DROP COLUMN schoolCampus;
+ALTER TABLE usersLogin DROP COLUMN school;
+ALTER TABLE usersLogin DROP COLUMN superUser;
+ALTER TABLE usersLogin MODIFY COLUMN email VARCHAR(45);
+ALTER TABLE schoolClasses ADD (name VARCHAR(45) NOT NULL);

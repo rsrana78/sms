@@ -79,7 +79,11 @@ public class Campus implements Serializable {
 
 	@Basic(fetch = FetchType.LAZY)
 	@OneToMany(mappedBy="campus")
-	private List<SchoolClass> schoolClasses;
+	private List<SchoolClasses> schoolClasses;
+	
+	@Basic
+	@Column(name = "initials")
+	private String campusInitials;
 
 	public int getId() {
 		return id;
@@ -177,12 +181,20 @@ public class Campus implements Serializable {
 		this.students = students;
 	}
 
-	public List<SchoolClass> getSchoolClasses() {
+	public List<SchoolClasses> getSchoolClasses() {
 		return schoolClasses;
 	}
 
-	public void setSchoolClasses(List<SchoolClass> schoolClasses) {
+	public void setSchoolClasses(List<SchoolClasses> schoolClasses) {
 		this.schoolClasses = schoolClasses;
+	}
+
+	public String getCampusInitials() {
+		return campusInitials;
+	}
+
+	public void setCampusInitials(String campusInitials) {
+		this.campusInitials = campusInitials;
 	}
 
 }

@@ -89,14 +89,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 		if(existing != null)
 			return EMPLOYEE_EXIST;
 		if(new Integer(dto.getEmpType()) == 1){
-			campus = campusRepository.getOne(securityService.getCampusId());
+			campus = campusRepository.getOne(securityService.getSchoolId());
 			if(campus != null){
 				existing = campus.getPrincipal();
 				if(existing != null && !existing.isServing())
 					return PRINCIPAL_EXIST;
 			}
 		}
-		campus = campusRepository.findOne(securityService.getCampusId());
+		campus = campusRepository.findOne(securityService.getSchoolId());
 		EmployeeType employeeType = employeeTypeRepository.findOne(new Integer(dto.getEmpType()));
 		Qualification qualification = qualificationRepository.findOne(new Integer(dto.getQualification()));
 		Employee employee = DomainMapper.createEmployee(dto);
@@ -106,7 +106,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 		employee = employeeRepository.saveAndFlush(employee);
 		UserInfo user = DomainMapper.createUserInfo(dto);
 		user.setEmployee(employee);
-		user.setSchoolCampus(campus);
 		Sha256Hash encryptedPassword = new Sha256Hash(dto.getCnic());
 		user.setPassword(encryptedPassword.toHex());
 		userInfoRepository.save(user);
@@ -163,14 +162,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 		Campus campus = null;
 		Employee existing = null;
 		if(new Integer(dto.getEmpType()) == 1){
-			campus = campusRepository.getOne(securityService.getCampusId());
+			campus = campusRepository.getOne(securityService.getSchoolId());
 			if(campus != null){
 				existing = campus.getPrincipal();
 				if(existing != null && !existing.isServing())
 					return PRINCIPAL_EXIST;
 			}
 		}
-		campus = campusRepository.findOne(securityService.getCampusId());
+		campus = campusRepository.findOne(securityService.getSchoolId());
 		EmployeeType employeeType = employeeTypeRepository.findOne(new Integer(dto.getEmpType()));
 		Qualification qualification = qualificationRepository.findOne(new Integer(dto.getQualification()));
 		Employee employee = DomainMapper.createEmployee(dto);

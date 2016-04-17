@@ -16,15 +16,25 @@ public enum GenderEnum {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	public String getGender() {
 		return gender;
 	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
+	
+	public static String getGenderName(Integer id){
+		if(id == GenderEnum.MALE.getId())
+			return GenderEnum.MALE.getGender();
+		else if(id == GenderEnum.FEMALE.getId())
+			return GenderEnum.FEMALE.getGender();
+		else
+			return null;
+	}
+	
+	public static Integer getGenderId(String name){
+		if(name.equals(GenderEnum.MALE.getGender()))
+			return GenderEnum.MALE.getId();
+		else if(name.equals(GenderEnum.FEMALE.getGender()))
+			return GenderEnum.FEMALE.getId();
+		else
+			return null;
 	}
 }

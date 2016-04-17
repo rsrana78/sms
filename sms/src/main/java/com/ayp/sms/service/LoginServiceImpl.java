@@ -8,10 +8,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ayp.sms.domain.Employee;
+import com.ayp.sms.domain.Sections;
 import com.ayp.sms.domain.SessionData;
+import com.ayp.sms.domain.Student;
 import com.ayp.sms.domain.UserInfo;
 import com.ayp.sms.dto.LoginUserDTO;
 import com.ayp.sms.enums.UserTypeEnum;
+import com.ayp.sms.repository.SectionsRepository;
 import com.ayp.sms.repository.UserInfoRepository;
 import com.ayp.sms.util.CompleteURLUtil;
 
@@ -31,6 +35,9 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Autowired
 	private UserInfoRepository userInfoRepository;
+	
+	@Autowired
+	private SectionsRepository sectionRepository;
 
 	@Override
 	public boolean loginUser(LoginUserDTO dto) throws Exception{
@@ -46,25 +53,27 @@ public class LoginServiceImpl implements LoginService{
 			SessionData sessionData = securityService.getSessionData();
 			sessionData.setUserName(dto.getUserName());
 			sessionData.setFullName(user.getFullName());
-			if(user.getSchoolCampus() != null){
-				sessionData.setCampusId(user.getSchoolCampus().getId());
-				sessionData.setCampusName(user.getSchoolCampus().getCampusName());
-				sessionData.setImagePath(CompleteURLUtil.completeURL(user.getSchoolCampus().getMonogram()));
+			if(user.getEmployee() != null){
+				sessionData.setUserId(user.getEmployee().getEmployeeId());
+				Employee employee = user.getEmployee();
+				sessionData.setCampusId(employee.getCampuses().getId());
+				sessionData.setCampusName(employee.getCampuses().getCampusName());
+				Sections section = sectionRepository.getSectionByIncharge(employee.getEmployeeId());
+				if(section != null)
+					sessionData.setClassId(section.getId());
+				sessionData.setImagePath(CompleteURLUtil.completeURL(employee.getCampuses().getMonogram()));
+			}else{
+				Student student = user.getStudent();
+				sessionData.setCampusId(student.getCampus().getId());
+				sessionData.setCampusName(student.getCampus().getCampusName());
+				sessionData.setImagePath(CompleteURLUtil.completeURL(student.getCampus().getMonogram()));
 			}
-			else if(user.getSchool() != null)
-				sessionData.setImagePath(CompleteURLUtil.completeURL(user.getSchool().getMonogram()));
-			else
-				sessionData.setImagePath(CompleteURLUtil.completeURL(null));
-			if(user.isSuperUser())
-				sessionData.setUserType(UserTypeEnum.ADMIN.getType());
-			else if(user.getStudent() != null)
+			if(user.getStudent() != null)
 				sessionData.setUserType(UserTypeEnum.STUDENT.getType());
 			else if(user.getEmployee() != null)
 				sessionData.setUserType(UserTypeEnum.EMPLOYEE.getType());
-			else if(user.getSchool() == null && user.getSchoolCampus() != null)
-				sessionData.setUserType(UserTypeEnum.PRINCIPAL.getType());
-			else if(user.getSchool() != null && user.getSchoolCampus() == null)
-				sessionData.setUserType(UserTypeEnum.OWNER.getType());
+			else
+				sessionData.setUserType(UserTypeEnum.ADMIN.getType());
 			securityService.setSessionData(sessionData);
 			return true;
 		}

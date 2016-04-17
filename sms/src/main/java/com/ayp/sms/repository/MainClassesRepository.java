@@ -3,7 +3,7 @@ package com.ayp.sms.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ayp.sms.domain.SchoolClasses;
+import com.ayp.sms.domain.MainClasses;
 
 /**
  * 
@@ -12,6 +12,6 @@ import com.ayp.sms.domain.SchoolClasses;
  */
 
 @Transactional
-public interface ClassRepository extends JpaRepository<SchoolClasses, Integer>{
+public interface MainClassesRepository extends JpaRepository<MainClasses, Integer>{
 
 }

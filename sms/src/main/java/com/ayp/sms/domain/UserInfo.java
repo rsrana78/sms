@@ -41,20 +41,8 @@ public class UserInfo implements Serializable {
 	private String password;
 
 	@ManyToOne
-	@JoinColumn(name="school")
-	private School school;
-
-	@ManyToOne
-	@JoinColumn(name="schoolCampus")
-	private Campus schoolCampus;
-
-	@ManyToOne
 	@JoinColumn(name="student")
 	private Student student;
-
-	@Basic
-	@Column(name="superUser")
-	private boolean superUser;
 
 	@Basic
 	@Column(nullable=false, name="userName")
@@ -100,36 +88,12 @@ public class UserInfo implements Serializable {
 		this.password = password;
 	}
 
-	public School getSchool() {
-		return school;
-	}
-
-	public void setSchool(School school) {
-		this.school = school;
-	}
-
-	public Campus getSchoolCampus() {
-		return schoolCampus;
-	}
-
-	public void setSchoolCampus(Campus schoolCampus) {
-		this.schoolCampus = schoolCampus;
-	}
-
 	public Student getStudent() {
 		return student;
 	}
 
 	public void setStudent(Student student) {
 		this.student = student;
-	}
-
-	public boolean isSuperUser() {
-		return superUser;
-	}
-
-	public void setSuperUser(boolean superUser) {
-		this.superUser = superUser;
 	}
 
 	public String getUserName() {

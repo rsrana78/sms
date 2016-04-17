@@ -40,7 +40,7 @@ public class Student implements Serializable {
 
 	@Basic
 	@Temporal(TemporalType.DATE)
-	@Column(nullable=false)
+	@Column(nullable=false, name = "admissionDate")
 	private Calendar admissionDate;
 
 	@Basic
@@ -86,7 +86,7 @@ public class Student implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="admissionBy", nullable=false)
-	private Employee employee;
+	private Employee admissionBy;
 
 	@ManyToOne
 	@JoinColumn(name="class", nullable=false)
@@ -111,6 +111,23 @@ public class Student implements Serializable {
 	@Basic
 	@OneToMany(mappedBy="id")
 	private List<TestResult> testResults;
+	
+	@Basic
+	@Column(name = "student_cnic")
+	private String studentCNIC;
+	
+	@Basic
+	@Column(name = "father_cnic")
+	private String fatherCNIC;
+	
+	@Basic
+	@Column(name = "gender")
+	private Integer gender;
+	
+	@Basic
+	@Temporal(TemporalType.DATE)
+	@Column(name = "entryDate", nullable=false)
+	private Calendar createdDate;
 
 	public String getRegistrationNumber() {
 		return registrationNumber;
@@ -224,12 +241,12 @@ public class Student implements Serializable {
 		this.campus = campus;
 	}
 
-	public Employee getEmployee() {
-		return employee;
+	public Employee getAdmissionBy() {
+		return admissionBy;
 	}
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setAdmissionBy(Employee admissionBy) {
+		this.admissionBy = admissionBy;
 	}
 
 	public Sections getSection() {
@@ -278,6 +295,38 @@ public class Student implements Serializable {
 
 	public void setTestResults(List<TestResult> testResults) {
 		this.testResults = testResults;
+	}
+
+	public String getStudentCNIC() {
+		return studentCNIC;
+	}
+
+	public void setStudentCNIC(String studentCNIC) {
+		this.studentCNIC = studentCNIC;
+	}
+
+	public String getFatherCNIC() {
+		return fatherCNIC;
+	}
+
+	public void setFatherCNIC(String fatherCNIC) {
+		this.fatherCNIC = fatherCNIC;
+	}
+
+	public Integer getGender() {
+		return gender;
+	}
+
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
+
+	public Calendar getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Calendar createdDate) {
+		this.createdDate = createdDate;
 	}
 
 }

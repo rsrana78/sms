@@ -13,6 +13,8 @@
 <script src="${pageContext.request.contextPath}/js/school.js" type="text/javascript"></script>
 <link href="${pageContext.request.contextPath}/css/school.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="${pageContext.request.contextPath}/css/hover.css" rel="stylesheet" type="text/css" media="screen" />
 <script type="text/javascript">
 var context = getContext();
 function getContext(){
@@ -22,12 +24,12 @@ function getContext(){
 </head>
 <body>
 <div id="main-header">
-<p>${sessionScope['scopedTarget.securityService'].userFullName}:${sessionScope['scopedTarget.securityService'].campusName}</p>
+<p>${sessionScope['scopedTarget.securityService'].userFullName}:${sessionScope['scopedTarget.securityService'].schoolName}</p>
 </div>
 <div id="header-wrapper">
 <div id="header">
 	<div id="logo">
-		<a href="${pageContext.request.contextPath}/myschool/"><img src="${pageContext.request.contextPath}${sessionScope['scopedTarget.securityService'].logo}" title="${sessionScope['scopedTarget.securityService'].campusName}" alt="${sessionScope['scopedTarget.securityService'].campusName}"></a>
+		<a href="${pageContext.request.contextPath}/myschool/"><img src="${pageContext.request.contextPath}${sessionScope['scopedTarget.securityService'].logo}" title="${sessionScope['scopedTarget.securityService'].schoolName}" alt="${sessionScope['scopedTarget.securityService'].schoolName}"></a>
 	</div>
 	<div id="menu">
 		<ul>
@@ -67,6 +69,12 @@ function getContext(){
 	                <li><a href="#">Change Time Table</a></li>
                 </ul>
 			</li>
+			<li id="classes">
+				<a>Weekly Course Plan &#9662;</a>
+				<ul class="dropdown">
+	                <li><a href="#">List All Courses</a></li>
+                </ul>
+			</li>
 			<li id="exam">
 				<a>Exams &#9662;</a>
 				<ul class="dropdown">
@@ -97,6 +105,15 @@ function getContext(){
 	                <li><a href="#">Teachers Report</a></li>
 	                <li><a href="#">Students Report</a></li>
 	            </ul>
+			</li>
+			<li id="classes">
+				<a>Hostel Management &#9662;</a>
+				<ul class="dropdown">
+	                <li><a href="#">New Admission</a></li>
+	                <li><a href="#">All Rooms</a></li>
+	                <li><a href="#">Available Rooms </a></li>
+	                <li><a href="#">All Students</a></li>
+                </ul>
 			</li>
 			<li id="account">
 				<a>Account &#9662;</a>

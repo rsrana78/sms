@@ -9,6 +9,7 @@ public class SessionData implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private Integer userId;
 	private String userName;
 	private String fullName;
 	private String userIp;
@@ -16,7 +17,14 @@ public class SessionData implements Serializable{
 	private String userType;
 	private Integer campusId;
 	private String campusName;
+	private Integer classId;
 	
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -58,5 +66,11 @@ public class SessionData implements Serializable{
 	}
 	public void setCampusName(String campusName) {
 		this.campusName = campusName;
+	}
+	public Integer getClassId() {
+		return classId;
+	}
+	public void setClassId(Integer classId) {
+		this.classId = classId;
 	}
 }

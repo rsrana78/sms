@@ -36,7 +36,7 @@ public class DateSheet implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="class", nullable=false)
-	private SchoolClass schoolClass;
+	private SchoolClasses schoolClass;
 
 	@Basic
 	@OneToMany(mappedBy="id")
@@ -58,11 +58,11 @@ public class DateSheet implements Serializable {
 		this.exam = exam;
 	}
 
-	public SchoolClass getSchoolClass() {
+	public SchoolClasses getSchoolClass() {
 		return schoolClass;
 	}
 
-	public void setSchoolClass(SchoolClass schoolClass) {
+	public void setSchoolClass(SchoolClasses schoolClass) {
 		this.schoolClass = schoolClass;
 	}
 
